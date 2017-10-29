@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>虚拟机实现原理 | what I Write</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="what I Write">
+    <meta name="author" content="John Chang">
+    <meta name="description" content="愿有岁月可回首 且以深情共白头" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="http://oh0ygta31.bkt.clouddn.com/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="what I Write" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/网络/" class="animsition-link">网络<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/计算机/" class="animsition-link">计算机<small>(15)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://httpdocs.github.io/whatilike/" class="animsition-link">我喜欢的网站</a></li>
+                    
+                    <li><a href="https://httpdocs.github.io/resume/" class="animsition-link">我的简历</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">ABOUT  ME</a></li>
+           
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="http://ogov1j6dy.bkt.clouddn.com/logo1.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">what I Write</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-11-30T02:08:55.000Z" itemprop="datePublished">
+          2016-11-30
+      </time>
+    
+</span>
+                <h1>虚拟机实现原理</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p><code>虚拟机是怎么实现的？</code></p>
+<p>假设这里的虚拟化是指在一个OS下虚拟化另外一个OS（ESX那种hypervisor直接跑在硬件上的做法，其实大同小异），另外假设这里的虚拟化是指full virtualization而不是Xen那种para-virtualization。最后假设虚拟化的是一个早期的x86机子（没有hardware supported virtualization的存在）。</p>
+<p>首先看为什么一个OS无法直接与另外的OS共存。OS作为硬件上第一层软件，认为自己拥有全部的硬件的访问和控制权，且自己是唯一的控制者。在这种情况下，如果两个OS共存，必然产生问题。</p>
+<p><img src="http://ogov1j6dy.bkt.clouddn.com/Hyperviseur.png" alt=""></p>
+<p>I型–裸机型，直接运行在物理设备之上，是一种基于内核的虚拟机（其中包括 Oracle 虚拟机、VMware ESX Server、Microsoft Hyper-V 和 Citrix XenServer）。这种类型的Hypervisor所扮演的角色是一种抽象概念的OS。</p>
+<p>II型–宿主机型，运行在宿主机器的操作系统上（如上图）(VMware Workstation、Microsoft Virtual PC 和 Parallels Workstation ) 创建硬件全仿真实例。Hypervisor构建出一整套虚拟硬件平台（CPU/Memory/Storage/Adapter），上面需要你再去安装新的操作系统和需要的应用软件，这样底层和上层的OS就可以完全无关化。</p>
+<hr>
+<p><strong>OS主要负责管理的是CPU和内存，以及众多的IO设备。</strong>于是我们可以分别讨论。hypervisor是实现虚拟化的关键，它会以一个<strong>内核态的驱动</strong>存在。</p>
+<ul>
+<li>CPU的虚拟化：</li>
+</ul>
+<p>背景知识：x86 CPU有一项权限机制，把CPU的状态置于RING 0到RING 3分别使CPU具有最高的权限到最低的权限。以Linux为例，内核运行于RING 0上，而其余全部用户进程运行于RING 3上（Xen比较奇葩，Linux在Xen下面会运行于RING 1）。在用户权限下，所有的IO设备是不可操作的，另外，有些控制寄存寄是无法访问的，一些privilege的指令是不能运行的。因此一个用户进程要想读写文件，进行一些操作，就要依赖于内核。系统调用能够使CPU运行于RING 0，并执行内核代码（具体方法见一些操作系统教程）。</p>
+<p>hypervisor会为每个虚拟的CPU创建一个数据结构，模拟CPU的全部寄存器的值，在适当的时候跟踪并修改这些值。一个CPU的全部状态其实就是所有寄存器的值，只要保证任何操作之后寄存寄的值在OS看来是正确的，guest OS就可以正常执行。</p>
+<p>那么考虑虚拟化一个CPU，在虚拟化的guest OS里面，CPU无论如何也不可能运行于RING 0，因为这样的话，host OS必然会crash掉。因此，当一个guest OS想要进入到RING 0执行内核代码时，hypervisor会向guest OS说谎，并告诉它，你已经在RING 0上了，而实际上，所有的指令还是在RING 3上。当guest OS访问到任何privilege的东西时，hypervisor会接到fault，此时hypervisor会判断这个指令是什么，并修改相应的虚拟寄存器的状态，然后返回。这样guest OS就可以正常的运行。需要指出的是，在大多数的指令下代码是直接跑在硬件上的，而不需要软件介入。只有在一些权限高的请求下，软件会介入，并维护虚拟的CPU状态。</p>
+<ul>
+<li>内存的虚拟化：</li>
+</ul>
+<p>背景知识：虚拟内存，页表结构等。OS的基础内容，不表。</p>
+<p>hypervisor虚拟化内存的方法是创建一个shadow page table。正常的情况下，一个page table可以用来<strong>实现从虚拟内存到物理内存的翻译</strong>。在虚拟化的情况下，由于所谓的物理内存仍然是虚拟的，因此shadow page table就要做到：虚拟内存-&gt;虚拟的物理内存-&gt;真正的物理内存。</p>
+<p>以下是细节，如果看着闹心，请忽略。hypervisor会维护一个从虚拟内存到物理内存的映射，当guest OS更换自己的page table，也就是改变CR3寄存器的值，hypervisor会因为用户态的权限不足而接到一个general exception，hypervisor会记录用户想要更换的新的页表，并放上一个空的shadow page table，然后返回。这个空的shadow page table会在接下来的执行中造成CPU无法进行地址翻译，而产生page fault。在fault发生后，hypervisor会得到一个虚拟地址，然后根据之前记录的用户的页表结构，翻译出一个虚拟机器地址，然后再把这个虚拟的机器地址，由hypervisor维护的映射翻译为实际的机器地址，然后装入shadow page table，并返回执行。如此，就实现了：虚拟内存-&gt;虚拟的物理内存-&gt;真正的物理内存。</p>
+<ul>
+<li>I/O虚拟化：</li>
+</ul>
+<p>背景知识：memory mapped I/O device。大多数的PCI设备都是直接将自己的某些控制寄存器映射到物理内存空间上，CPU访问这些控制寄存器的方法和访问内存相同。CPU通过修改和读取这些寄存器来操作I/O设备。</p>
+<p>虚拟化的方法很简单，没当hypervisor接到page fault，并发现实际上虚拟的物理内存地址对应的是一个I/O设备，hypervisor就用软件模拟这个设备的工作情况，并返回。比如当CPU想要写磁盘时，hypervisor就把相应的东西写到一个host OS的文件上，这个文件实际上就模拟了虚拟的磁盘。</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2016/11/30/操作系统简单总结之计算机简介/" style="float: left;">
+        ← 操作系统简单总结之计算机简介
+    </a>
+    
+    
+    <a class="pull-right" href="/2016/11/29/堆栈理解/">
+        堆栈理解 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"></div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Chang. All Rights Reserved.
+                </p>
+                <p>Theme By Kieran</p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

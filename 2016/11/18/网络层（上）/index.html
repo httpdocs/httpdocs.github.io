@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>网络层（上） | what I Write</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="what I Write">
+    <meta name="author" content="John Chang">
+    <meta name="description" content="愿有岁月可回首 且以深情共白头" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="http://oh0ygta31.bkt.clouddn.com/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="what I Write" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/网络/" class="animsition-link">网络<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/计算机/" class="animsition-link">计算机<small>(15)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://httpdocs.github.io/whatilike/" class="animsition-link">我喜欢的网站</a></li>
+                    
+                    <li><a href="https://httpdocs.github.io/resume/" class="animsition-link">我的简历</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">ABOUT  ME</a></li>
+           
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="http://ogov1j6dy.bkt.clouddn.com/logo1.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">what I Write</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-11-18T08:55:43.000Z" itemprop="datePublished">
+          2016-11-18
+      </time>
+    
+</span>
+                <h1>网络层（上）</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p><code>网络层提供两种服务</code></p>
+<ul>
+<li>虚电路服务（OSI曾极力主张）</li>
+<li>数据报服务（现TCP/IP体系使用）</li>
+</ul>
+<p><code>网际协议IP</code><br>网际协议是现在的TCP/IP体系最重要的两个协议之一，和它配套使用的主要有如下三个协议：</p>
+<ul>
+<li>地址解析协议ARP(address resolution protocol)</li>
+<li>网际控制报文协议ICMP（internet control message protocol） </li>
+<li><p>网际组管理协议IGMP（internet group management protocol）</p>
+<p><strong>虚拟互联网络</strong></p>
+</li>
+</ul>
+<p>虚拟互联网络只是一个概念，其实就是通过利用IP来分类管理整个世界的主机，实现看起来整个世界就在同一个很大的互联网的效果。因为大家对网络的需求存在差异，只有多样的网络才能适应所有用户的需求。这也解释了市场上总是有很多不同性能，不同网络协议的网络出现，供不同用户选择。</p>
+<p>既然互联网里面有那么多不一样的网络，那么把网络互连起来就需要用到中间设备。从层次上分：</p>
+<ul>
+<li>物理层使用的中间设备叫转发器、集线器、中继器等。实现对物理线的扩展，没有存储数据的功能。</li>
+<li>数据链路层使用的中间设备有网桥或桥接器、交换机，有数据存储的功能。</li>
+<li>网络层使用的叫路由器（网关），其实就是一台提供路由服务（里面装了各种实现了协议的软件）的电脑。网关还有一个很重要的是实现网络协议的转换，这样两个使用不同的网络协议的网络通过一个路由器后还能交流。</li>
+</ul>
+<p><strong>分类的IP地址</strong></p>
+<p><strong>IP地址的编址方法共经历了三个历史阶段</strong></p>
+<ul>
+<li>分类的IP地址，最基本的编址。</li>
+<li>子网的划分，改进版。</li>
+<li>构建超网，无分类的思想。</li>
+</ul>
+<p>IP地址一共分为ABCDE五类。现在就仔细说一下ABC三类ip的细节。<br><img src="http://ogov1j6dy.bkt.clouddn.com/20161118net1.png" alt=""></p>
+<ul>
+<li>A类： <strong>在ip协议中规定，网络号全0的为保留地址，表示本网络的意思。而网络号全1的，如127.0.0.1，则根本不是一个网络地址，发送的任何数据报都会在本机中被解析，不会流出到别的网络。</strong></li>
+<li>B类： 因为前两位已经指派，那么网络号不可能会出现全0或者全1（C也是）。但有一个特殊的是网络地址<strong>128.0.0.0</strong>是不指派的，故最小是128.1.0.0。主机号参考A类。</li>
+<li>C类： 和B类一样，网络地址192.0.0.0也是不指派的，最小是192.0.1.0。</li>
+</ul>
+<p>ABC三类： <strong>主机号全0表示本主机所连接的网络地址，如5.6.7.8，主机所在网络为5.0.0.0,；主机号全1可以表示该网络的所有主机，这样用来广播很方便。（同样BC也是）</strong></p>
+<p><img src="http://ogov1j6dy.bkt.clouddn.com/20161118net2.png" alt=""></p>
+<p><strong>IP地址与硬件地址（mac地址）</strong></p>
+<p>每一台主机都有唯一的mac地址，也有唯一的IP地址，mac地址是不变的，ip可能会因分配方式而变。mac地址和ip地址都可以唯一定位一台主机。前面提到IP协议要和另外三个协议一起工作，其中ARP协议就是把ip地址转换为mac地址的协议，这样数据才能在<strong>物理网络</strong>实现传输，只有这样才能通过IP协议实现<strong>虚拟互联网络</strong>！</p>
+<p>传输数据的时候网络层封装数据报是用IP地址，故传输的数据报也叫IP数据报，而数据链路层则是使用MAC地址，故传输的数据也叫MAC帧。</p>
+<p>IP地址为32位，MAC地址为48位。IP地址的分配是基于网络拓朴，MAC地址的分配是基于制造商。</p>
+<p><strong>ARP协议</strong></p>
+<p>每个主机都有<strong>ARP高速缓存</strong>，里面缓存着<strong>本局域网</strong>内的各主机和路由器的ip地址到mac地址的映射。</p>
+<p><strong>IP数据报的格式和转发</strong></p>
+<p>格式就不详细说了，需要的时候看一下书就好了。</p>
+<p>ip数据报的转发主要是通过路由器来完成，路由器内部有路由表，简单来说通过查表转发数据报。</p>
+<p><code>划分子网和构建超网</code></p>
+<p><strong>划分子网</strong></p>
+<p>划分子网主要是对现有的网络自己再进行划分子网，主要思想是拿出部分主机号作为子网号。从外部网络来看，整个网络号也还只是一个网络；而从内部看，就划分出了很多个局域网。</p>
+<p>拿到一个ip地址，怎么样知道这个ip从属的网络有没有进行再划分子网呢？这个时候就要用子网掩码了。只要用子网掩码与ip地址相与，便能得到<strong>子网的网络号</strong>，然后再进行路由。<strong>子网掩码是网络的的一个重要属性，在网络中的每一台主机，不管有没有进行划分子网，都有一个子网掩码！</strong><br><img src="http://ogov1j6dy.bkt.clouddn.com/20161118net3.png" alt=""></p>
+<p><strong>构造超网</strong></p>
+<p><strong>CIRD无分类编址思想</strong>。书上讲得很理论，其实就是为了方便管理网络。在CIRD的编址中,IP不再是网络号+主机号了；而是<strong>网络前缀号+主机号</strong>。</p>
+<p>举个栗子：<br>中山大学买了不起B类网络，买了很多个C类IP，然后通过找规律，我们发现他们的前多少位是一模一样的@.@ 然后我们就用一模一样的那么多位，用作我们的对外网络号~然后80个C类网就只要一个网络号就可以在路由表里存放下了，路由器都笑了。</p>
+<p><img src="http://ogov1j6dy.bkt.clouddn.com/20161118net4.png" alt=""></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2016/11/21/网络层（下）/" style="float: left;">
+        ← 网络层（下）
+    </a>
+    
+    
+    <a class="pull-right" href="/2016/11/16/数据链路层/">
+        数据链路层 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"></div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Chang. All Rights Reserved.
+                </p>
+                <p>Theme By Kieran</p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

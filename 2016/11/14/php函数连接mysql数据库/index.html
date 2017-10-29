@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>php函数连接mysql数据库 | what I Write</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="what I Write">
+    <meta name="author" content="John Chang">
+    <meta name="description" content="愿有岁月可回首 且以深情共白头" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="http://oh0ygta31.bkt.clouddn.com/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="what I Write" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/网络/" class="animsition-link">网络<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/计算机/" class="animsition-link">计算机<small>(15)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://httpdocs.github.io/whatilike/" class="animsition-link">我喜欢的网站</a></li>
+                    
+                    <li><a href="https://httpdocs.github.io/resume/" class="animsition-link">我的简历</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">ABOUT  ME</a></li>
+           
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="http://ogov1j6dy.bkt.clouddn.com/logo1.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">what I Write</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-11-14T15:08:55.000Z" itemprop="datePublished">
+          2016-11-14
+      </time>
+    
+</span>
+                <h1>php函数连接mysql数据库</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p><strong>1. mysql_connect()</strong></p>
+<ul>
+<li>描述：php连接mysql服务器</li>
+<li>语法：resource \$link=@mysql_connect(\$hostname,\$username,\$passward);</li>
+<li><p>参数：</p>
+<ul>
+<li>mysql.exe是mysql服务器的主应用程序。</li>
+<li>-h代表MySQL数据库主机名(MySQL数据库端口号3306)。如：localhost或127.0.0.1</li>
+<li>-u代表MySQL用户名。如：root</li>
+<li>-p代表MySQL密码。如：root</li>
+<li><strong>注意：各个参数之间用空格隔开。@符号隐藏错误信息，保护系统安全</strong></li>
+</ul>
+</li>
+<li><p>返回值：如果执行成功，返回一个资源标识符。如果执行失败，返回FALSE。</p>
+</li>
+</ul>
+<hr>
+<p><strong>2.exit()</strong></p>
+<ul>
+<li>描述：输出一个提示信息，并中止脚本继续向下运行。</li>
+<li>语法：void exit([$msg])</li>
+<li>参数：$msg是可选项。如果省略，只中止脚本运行。</li>
+<li>举例：exit(“PHP连接出错了”)</li>
+</ul>
+<hr>
+<p><strong>3.mysql_error()</strong></p>
+<ul>
+<li>描述：返回上一次MySQL执行失败时的文本错误信息。</li>
+<li>语法：mysql_error() </li>
+</ul>
+<hr>
+<p><strong>4.屏蔽系统错误@</strong></p>
+<ul>
+<li>描述：@可以屏蔽各种函数调用错误，或包含文件错误，但是不能用在函数定义或类定义之前。</li>
+</ul>
+<hr>
+<blockquote>
+<p>选择数据库</p>
+</blockquote>
+<p><strong>1.mysql_select_db()</strong> </p>
+<ul>
+<li>描述：选择当前要操作的数据库</li>
+<li>语法：bool mysql_select_db ( string \$database_name [, resource \$link ] )</li>
+<li>参数：<ul>
+<li>$database_name：指定要选择的数据库名称。</li>
+<li>\$link：可选项。指定当前的活动连接。如果省略，就以上一次打开的活动连接。</li>
+</ul>
+</li>
+<li>返回值：如果选择数据库成功，则返回TRUE。如果选择数据库失败，则返回FALSE。</li>
+</ul>
+<blockquote>
+<p><strong>设置mysql返回的数据字符集：mysql_query(“set names utf8”)</strong><br><strong>请求服务器以该字符集编码形式传送给客户端，与自己的客户端显示字符的编码一致，才能保证不乱码</strong></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>执行SQL语句</p>
+</blockquote>
+<p><strong>1.mysql_query()</strong></p>
+<ul>
+<li>描述：发送一条 MySQL 查询。</li>
+<li>语法：resource mysql_query ( string \$query [, resource \$link = NULL ] )</li>
+<li><p>参数：<br><strong>$query：指要发送的SQL语句。</strong></p>
+<ul>
+<li>增加记录：$query = “INSERT INTO news(title,content) VALUES(‘标题’ , ‘内容’)” </li>
+<li>删除记录：$query = “DELETE FROM news WHERE id=10”</li>
+<li>修改记录：$query = “UPDATE news SET title = ‘新标题’ , content = ‘新内容’ WHERE id=80”</li>
+<li>查询记录：$query = “SELECT * FROM news WHERE id&lt;100”</li>
+</ul>
+</li>
+<li>\$link：可选项。指上一次打开的活动连接。</li>
+<li>返回值<ul>
+<li>如果执行<code>SELECT</code>、<code>SHOW</code>、<code>DESCRIBE</code>命令，成功时返回结果集，失败时返回FALSE</li>
+<li>结果集也是一个资源标识符，是到MySQL数据的一个引用地址。</li>
+<li>如果执行其它的SQL语句，执行成功返回TRUE，执行失败返回FALSE。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>从结果集取数据</p>
+</blockquote>
+<p><strong>1.mysql_fetch_row()</strong></p>
+<ul>
+<li>描述：从<strong>结果集</strong>中取出<strong>一行</strong>作为<strong>枚举数组</strong></li>
+<li>语法：array mysql_fetch_row(resource \$result)</li>
+<li>参数：$result 是结果集变量</li>
+<li>返回值：返回一个枚举数组，也就是从0开始的正整数下标。这里的下标，是与表的字段下标对应的。</li>
+</ul>
+<p><strong>2.mysql_fetch_array()</strong></p>
+<ul>
+<li>描述：从<strong>结果集</strong>取出一行，作为混合数组返回。</li>
+<li>语法：array mysql_fetch_array(resource $result [,int $result_type]</li>
+<li>参数<ul>
+<li>$result：是指结果集变量</li>
+<li>$result_type：是指返回的数组的类型。取值：MYSQL_BOTH、MYSQL_ASSOC、MYSQL_NUM<ul>
+<li>MYSQL_BOTH：默认的。也就是说两种下标都存在。</li>
+<li>MYSQL_ASSOC：只有字符下标的数组。相当于mysql_fetch_assoc()的功能</li>
+<li>MYSQL_NUM：只有整数下标的数组，相当于mysql_fetch_row的功能</li>
+<li>以上三个参数是常量，必须大写。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>3.mysql_fetch_assoc()</strong></p>
+<ul>
+<li>描述：从结果集中取一行，以关联数组返回</li>
+<li>语法：array mysql_fetch_assoc(resource $result);</li>
+</ul>
+<hr>
+<blockquote>
+<p>include和require</p>
+</blockquote>
+<p><strong>1.include()</strong></p>
+<ul>
+<li>描述：包含并运行指定文件</li>
+<li>语法：include $filename 或者 include($filename)</li>
+<li>举例：include “include/conn.php”</li>
+</ul>
+<p><strong>2.require()</strong></p>
+<ul>
+<li>描述：包含并运行指定文件</li>
+<li>语法：require $filename 或者 require($filename)</li>
+<li>举例：require “include/conn.php”</li>
+</ul>
+<p><strong>注意：include和require都是包含并运行指定文件，但是有区别。如果包含的文件不存在，include将报一个警告错误，程序继续向下运行；而require 将报一个致命错误，脚本程序立即终止执行</strong></p>
+<p><strong>3.include_once()和require_once()</strong></p>
+<pre><code>唯一区别是如果该文件中的代码已经被包含了，则不会再次包含。确保它只被包含一次以避免函数重定义，变量重新赋值等问题。
+</code></pre><p><strong>4.header()</strong></p>
+<ul>
+<li>描述：发送一个自定义的http报文，换句话说：PHP返回数据的格式或者字符编码。</li>
+<li>语法：void header(string $string)</li>
+<li><p>举例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"> header(&quot;&quot;location:http://www.sina.com.cn);</div><div class="line"> js中的跳转：location对象--&gt;location.href=&quot;http://www.sina.com.cn&quot;;</div><div class="line">html中的跳转：&lt;meta http-equiv=&quot;refresh&quot; content=&quot;2,url=http://www.sina.com.cn&quot;&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>5.urlencode()</strong></p>
+<ul>
+<li>描述：编码url字符串，说白了就是加密</li>
+<li>语法：string urlencode(string $str);</li>
+</ul>
+<p><strong>6.urldecode（）</strong></p>
+<ul>
+<li>描述：对网页传递的数据进行解码。</li>
+<li>语法：string urldecode(string $str);</li>
+</ul>
+<p><strong>7.md5()</strong></p>
+<ul>
+<li>描述：计算字符串的md5散列值，加密</li>
+<li>语法：string md5(string $str);</li>
+<li>注意：该函数的加密方式是单向加密。曾被破解，大网站一般是自己写的加密算法。</li>
+<li>举例：md5(“123456”)=e10adc3949ba59abbe56e057f20f883e</li>
+</ul>
+<p><strong>8.mysql_num_rows()</strong></p>
+<ul>
+<li>描述：返回结果集中的行数</li>
+<li>语法：int mysql_num_rows(resource $result);</li>
+</ul>
+<p><strong>9._SERVER常量</strong></p>
+<ul>
+<li>描述：获取服务器执行环境信息</li>
+<li><p>举例： </p>
+<ul>
+<li><p>$SERVER[“REMOTE_ADDR”] //客户端的IP地址</p>
+</li>
+<li><p>$_SERVER[“SERVER_ADDR”] //服务器端的IP地址</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>连接mysql关键代码<br><figure class="highlight php"><table><tr><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"></div><div class="line"><span class="comment">//声明PHP输出数据的字符集,即显示在屏幕的网页上的字符集，因为你从Mysql是按照utf-8取的，所以显示也要按utf-8。</span></div><div class="line">header(<span class="string">"charset=utf-8;content=text/html"</span>);</div><div class="line"></div><div class="line"><span class="comment">// 数据库的配置信息</span></div><div class="line">$db_host = <span class="string">"localhost"</span>;</div><div class="line">$db_user = <span class="string">"root"</span>;</div><div class="line">$db_pwd = <span class="string">""</span>;</div><div class="line">$db_name = <span class="string">"007online"</span>;</div><div class="line"></div><div class="line"><span class="comment">//php连接mysql服务器</span></div><div class="line">$link = @mysql_connect($db_host,$db_user,$db_pwd);</div><div class="line"><span class="comment">//如果连接失败，则输出错误信息，并中止程序运行</span></div><div class="line"><span class="keyword">if</span>(!$link)&#123;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"数据库连接失败"</span>.mysql_error();</div><div class="line">	<span class="comment">//中断退出</span></div><div class="line">	<span class="keyword">exit</span>();</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"mysql数据库连接成功！"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//选择数据库</span></div><div class="line"><span class="keyword">if</span>(mysql_select_db($db_name,$link))&#123;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"选择数据库&#123;$db_name&#125;成功！"</span>;</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"选择数据库&#123;$db_name&#125;失败！"</span>.mysql_error();</div><div class="line">	<span class="comment">//中断退出</span></div><div class="line">	<span class="keyword">exit</span>();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//设置Mysql返回数据的字符集</span></div><div class="line">mysql_query(<span class="string">"set names utf8"</span>);</div><div class="line"></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2016/11/14/什么是网关/" style="float: left;">
+        ← 什么是网关
+    </a>
+    
+    
+    <a class="pull-right" href="/2016/11/14/我的win10必装软件/">
+        我的win10必装软件 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"></div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Chang. All Rights Reserved.
+                </p>
+                <p>Theme By Kieran</p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

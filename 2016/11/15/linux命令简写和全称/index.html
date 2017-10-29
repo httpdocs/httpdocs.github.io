@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>linux命令简写和全称 | what I Write</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="what I Write">
+    <meta name="author" content="John Chang">
+    <meta name="description" content="愿有岁月可回首 且以深情共白头" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="http://oh0ygta31.bkt.clouddn.com/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="what I Write" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/网络/" class="animsition-link">网络<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/计算机/" class="animsition-link">计算机<small>(15)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://httpdocs.github.io/whatilike/" class="animsition-link">我喜欢的网站</a></li>
+                    
+                    <li><a href="https://httpdocs.github.io/resume/" class="animsition-link">我的简历</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">ABOUT  ME</a></li>
+           
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="http://ogov1j6dy.bkt.clouddn.com/logo1.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">what I Write</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-11-15T02:39:26.000Z" itemprop="datePublished">
+          2016-11-15
+      </time>
+    
+</span>
+                <h1>linux命令简写和全称</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<ul>
+<li><p>su：Swith user  切换用户，切换到root用户</p>
+</li>
+<li><p>cat: Concatenate  串联</p>
+</li>
+<li><p>uname: Unix name  系统名称</p>
+</li>
+<li><p>df: Disk free  空余硬盘</p>
+</li>
+<li><p>du: Disk usage 硬盘使用率</p>
+</li>
+<li><p>chown: Change owner 改变所有者</p>
+</li>
+<li><p>chgrp: Change group 改变用户组</p>
+</li>
+<li><p>ps：Process Status  进程状态</p>
+</li>
+<li><p>tar：Tape archive 解压文件</p>
+</li>
+<li><p>chmod: Change mode 改变模式</p>
+</li>
+<li><p>umount: Unmount 卸载</p>
+</li>
+<li><p>ldd：List dynamic dependencies 列出动态相依</p>
+</li>
+<li><p>insmod：Install module 安装模块</p>
+</li>
+<li><p>rmmod：Remove module 删除模块</p>
+</li>
+<li><p>lsmod：List module 列表模块</p>
+</li>
+<li><p>alias :Create your own name for a command</p>
+</li>
+<li><p>bash :GNU Bourne-Again Shell  linux内核</p>
+</li>
+<li><p>grep:global regular expression print</p>
+</li>
+<li><p>httpd :Start Apache</p>
+</li>
+<li><p>ipcalc :Calculate IP information for a host</p>
+</li>
+<li><p>ping :Send ICMP ECHO_Request to network hosts</p>
+</li>
+<li><p>reboot: Restart your computer</p>
+</li>
+<li><p>sudo:Superuser do</p>
+</li>
+</ul>
+<ul>
+<li><p>/bin = BINaries </p>
+</li>
+<li><p>/dev = DEVices </p>
+</li>
+<li><p>/etc = 存放配置文件的地方。配置文件的目录</p>
+</li>
+<li><p>Editable Text Configuration 初期etcetra directory（ETCetera）,后来”Editable Text Configuration” 或者 “Extended Tool Chest”。</p>
+</li>
+<li>/opt = Optional application software packages</li>
+<li>pwd  =  print working Directory (打印工作目录)。   </li>
+<li>/lib = LIBrary </li>
+<li>/proc = PROCesses </li>
+<li>/sbin = Superuser BINaries </li>
+<li>/tmp = TeMPorary </li>
+<li>/usr = Unix Shared Resources </li>
+<li>/var = VARiable ? 是储存各种变化的文件，比如log等等</li>
+<li>FIFO = First In, First Out </li>
+<li>GRUB = GRand Unified Bootloader </li>
+<li>IFS = Internal Field Seperators </li>
+<li>LILO = LInux LOader </li>
+<li>MySQL = My最初作者的名字SQL = Structured Query Language </li>
+<li>PHP = Personal Home Page Tools = PHP Hypertext Preprocessor </li>
+<li>PS = Prompt String </li>
+<li>Perl = “Pratical Extraction and Report Language” = “Pathologically Eclectic Rubbish Lister” </li>
+<li>Python Monty Python’s Flying Circus </li>
+<li>Tcl = Tool Command Language </li>
+<li>Tk = ToolKit </li>
+<li>VT = Video Terminal </li>
+<li>YaST = Yet Another Setup Tool </li>
+<li>apache = “a patchy” server </li>
+<li>apt = Advanced Packaging Tool </li>
+<li>ar = archiver </li>
+<li>as = assembler </li>
+<li>bash = Bourne Again SHell </li>
+<li><p>bc = Basic (Better) Calculator </p>
+</li>
+<li><p>bg = BackGround </p>
+</li>
+<li><p>cal = CALendar </p>
+</li>
+<li><p>cat = CATenate </p>
+</li>
+<li><p>cd = Change Directory </p>
+</li>
+<li><p>chgrp = CHange GRouP </p>
+</li>
+<li><p>chmod = CHange MODe </p>
+</li>
+<li><p>chown = CHange OWNer </p>
+</li>
+<li><p>chsh = CHange SHell </p>
+</li>
+<li><p>cmp = compare </p>
+</li>
+<li><p>cobra = Common Object Request Broker Architecture </p>
+</li>
+<li><p>comm = common </p>
+</li>
+<li><p>cp = CoPy </p>
+</li>
+<li><p>cpio = CoPy In and Out </p>
+</li>
+<li><p>cpp = C Pre Processor </p>
+</li>
+<li><p>cups = Common Unix Printing System </p>
+</li>
+<li><p>cvs = Current Version System </p>
+</li>
+<li><p>daemon = Disk And Execution MONitor </p>
+</li>
+<li><p>dc = Desk Calculator </p>
+</li>
+<li><p>dd = Disk Dump </p>
+</li>
+<li><p>df = Disk Free </p>
+</li>
+<li><p>diff = DIFFerence </p>
+</li>
+<li><p>dmesg = diagnostic message </p>
+</li>
+<li><p>du = Disk Usage </p>
+</li>
+<li><p>ed = editor </p>
+</li>
+<li><p>egrep = Extended GREP </p>
+</li>
+<li><p>elf = Extensible Linking Format </p>
+</li>
+<li><p>elm = ELectronic Mail </p>
+</li>
+<li><p>emacs = Editor MACroS </p>
+</li>
+<li><p>eval = EVALuate </p>
+</li>
+<li><p>ex = EXtended </p>
+</li>
+<li><p>exec = EXECute </p>
+</li>
+<li><p>fd = file descriptors </p>
+</li>
+<li><p>fg = ForeGround </p>
+</li>
+<li><p>fgrep = Fixed GREP </p>
+</li>
+<li><p>fmt = format </p>
+</li>
+<li><p>fsck = File System ChecK </p>
+</li>
+<li><p>fstab = FileSystem TABle </p>
+</li>
+<li><p>fvwm = F<em>*</em> Virtual Window Manager </p>
+</li>
+<li><p>gawk = GNU AWK </p>
+</li>
+<li><p>gpg = GNU Privacy Guard </p>
+</li>
+<li><p>groff = GNU troff </p>
+</li>
+<li><p>hal = Hardware Abstraction Layer </p>
+</li>
+<li><p>joe = Joe’s Own Editor </p>
+</li>
+<li><p>ksh = Korn SHell </p>
+</li>
+<li><p>lame = Lame Ain’t an MP3 Encoder </p>
+</li>
+<li><p>lex = LEXical analyser </p>
+</li>
+<li><p>lisp = LISt Processing = Lots of Irritating Superfluous Parentheses </p>
+</li>
+<li><p>ln = LiNk </p>
+</li>
+<li><p>lpr = Line PRint </p>
+</li>
+<li><p>ls = list </p>
+</li>
+<li><p>lsof = LiSt Open Files </p>
+</li>
+<li><p>m4 = Macro processor Version 4 </p>
+</li>
+<li><p>man = MANual pages </p>
+</li>
+<li><p>mawk = Mike Brennan’s AWK </p>
+</li>
+<li><p>mc = Midnight Commander </p>
+</li>
+<li><p>mkfs = MaKe FileSystem </p>
+</li>
+<li><p>mknod = MaKe NODe </p>
+</li>
+<li><p>motd = Message of The Day </p>
+</li>
+<li><p>mozilla = MOsaic GodZILLa </p>
+</li>
+<li><p>mtab = Mount TABle </p>
+</li>
+<li><p>mv = MoVe </p>
+</li>
+<li><p>nano = Nano’s ANOther editor </p>
+</li>
+<li><p>nawk = New AWK </p>
+</li>
+<li><p>nl = Number of Lines </p>
+</li>
+<li><p>nm = names </p>
+</li>
+<li><p>nohup = No HangUP </p>
+</li>
+<li><p>nroff = New ROFF </p>
+</li>
+<li><p>od = Octal Dump </p>
+</li>
+<li><p>passwd = PASSWorD </p>
+</li>
+<li><p>pg = pager </p>
+</li>
+<li><p>pico = PIne’s message COmposition editor </p>
+</li>
+<li><p>pine = “Program for Internet News &amp; Email” = “Pine is not Elm”</p>
+</li>
+<li><p>ping =  Packet InterNet Grouper </p>
+</li>
+<li><p>pirntcap = PRINTer CAPability </p>
+</li>
+<li><p>popd = POP Directory </p>
+</li>
+<li><p>pr = pre </p>
+</li>
+<li><p>printf = PRINT Formatted </p>
+</li>
+<li><p>ps = Processes Status </p>
+</li>
+<li><p>pty = pseudo tty </p>
+</li>
+<li><p>pushd = PUSH Directory </p>
+</li>
+<li><p>pwd = Print Working Directory </p>
+</li>
+<li><p>rc = runcom = run command, shell </p>
+</li>
+<li><p>rev = REVerse </p>
+</li>
+<li><p>rm = ReMove </p>
+</li>
+<li><p>rn = Read News </p>
+</li>
+<li><p>roff = RunOFF </p>
+</li>
+<li><p>rpm = RPM Package Manager = RedHat Package Manager </p>
+</li>
+<li><p>rsh, rlogin, = Remote </p>
+</li>
+<li><p>rxvt = ouR XVT </p>
+</li>
+<li><p>sed = Stream EDitor </p>
+</li>
+<li><p>seq = SEQuence </p>
+</li>
+<li><p>shar = SHell ARchive </p>
+</li>
+<li><p>slrn = S-Lang rn </p>
+</li>
+<li><p>ssh = Secure SHell </p>
+</li>
+<li><p>ssl = Secure Sockets Layer </p>
+</li>
+<li><p>stty = Set TTY </p>
+</li>
+<li><p>su = Substitute User </p>
+</li>
+<li><p>svn = SubVersioN </p>
+</li>
+<li><p>tar = Tape ARchive </p>
+</li>
+<li><p>tcsh = TENEX C shell </p>
+</li>
+<li><p>telnet = TEminaL over Network </p>
+</li>
+<li><p>termcap = terminal capability </p>
+</li>
+<li><p>terminfo = terminal information </p>
+</li>
+<li><p>tr = traslate </p>
+</li>
+<li><p>troff = Typesetter new ROFF </p>
+</li>
+<li><p>tsort = Topological SORT </p>
+</li>
+<li><p>tty = TeleTypewriter </p>
+</li>
+<li><p>twm = Tom’s Window Manager </p>
+</li>
+<li><p>tz = TimeZone </p>
+</li>
+<li><p>udev = Userspace DEV </p>
+</li>
+<li><p>ulimit = User’s LIMIT </p>
+</li>
+<li><p>umask = User’s MASK </p>
+</li>
+<li><p>uniq = UNIQue </p>
+</li>
+<li><p>vi = VIsual = Very Inconvenient </p>
+</li>
+<li><p>vim = Vi IMproved </p>
+</li>
+<li><p>wall = write all </p>
+</li>
+<li><p>wc = Word Count </p>
+</li>
+<li><p>wine = WINE Is Not an Emulator </p>
+</li>
+<li><p>xargs = eXtended ARGuments </p>
+</li>
+<li><p>xdm = X Display Manager </p>
+</li>
+<li><p>xlfd = X Logical Font Description </p>
+</li>
+<li><p>xmms = X Multimedia System </p>
+</li>
+<li><p>xrdb = X Resources DataBase </p>
+</li>
+<li><p>xwd = X Window Dump </p>
+</li>
+<li><p>yacc = yet another compiler compiler</p>
+</li>
+</ul>
+<p>/var </p>
+<p>包含系统一般运行时要改变的数据。通常这些数据所在的目录的大小是要经常变化或扩充的。原来 /var 目录中有些内容是在 /usr 中的，但为了保持 /usr 目录的相对稳定，就把那些需要经常改变的目录放到 /var 中了。每个系统是特定的，即不通过网络与其他计算机共享。下面列出一些重要的目录 ( 一些不太重要的目录省略了 ) 。</p>
+<ol>
+<li>/var/catman ： 包括了格式化过的帮助 (man) 页。帮助页的源文件一般存在 /usr/man/catman 中；有些 man 页可能有预格式化的版本，存在 /usr/man/cat 中。而其他的 man 页在第一次看时都需要格式化，格式化完的版本存在 /var/man 中，这样其他人再看相同的页时就无须等待格式化了。 (/var/catman 经常被清除，就像清除临时目录一样。 ) </li>
+<li>/var/lib ： 存放系统正常运行时要改变的文件。 </li>
+<li>/var/local ： 存放 /usr/local 中安装的程序的可变数据 ( 即系统管理员安装的程序 ) 。注意，如果必要，<br>即使本地安装的程序也会使用其他 /var 目录，例如 /var/lock 。 </li>
+<li>/var/lock ： 锁定文件。许多程序遵循在 /var/lock 中产生一个锁定文件的约定，以用来支持他们正在使用某个特定的设备或文件。其他程序注意到这个锁定文件时，就不会再使用这个设备或文件。 </li>
+<li>/var/log ： 各种程序的日志 (log) 文件，尤其是 login (/var/log/wtmplog 纪录所有到系统的登录和注销 ) 和 syslog (/var/log/messages 纪录存储所有核心和系统程序信息 ) 。 /var/log 里的文件经常不确定地增长，应该定期清除。 </li>
+<li>/var/run ： 保存在下一次系统引导前有效的关于系统的信息文件。例如， /var/run/utmp 包含当前登录的用户的信息。 </li>
+<li>/var/spool ： 放置 “ 假脱机 (spool)” 程序的目录，如 mail 、 news 、打印队列和其他队列工作的目录。每个不同的 spool 在 /var/spool 下有自己的子目录，例如，用户的邮箱就存放在 /var/spool/mail 中。 </li>
+<li>/var/tmp ： 比 /tmp 允许更大的或需要存在较长时间的临时文件。注意系统管理员可能不允许 /var/tmp 有很旧的文件。 </li>
+</ol>
+<p>/etc 文件系统<br>/etc 目录包含各种系统配置文件，下面说明其中的一些。其他的你应该知道它们属于哪个程序，并阅读该程序的 man 页。许多网络配置文件也在 /etc 中。 </p>
+<ol>
+<li><p>/etc/rc 或 /etc/rc.d 或 /etc/rc?.d ： 启动、或改变运行级时运行的脚本或脚本的目录。 </p>
+</li>
+<li><p>/etc/passwd ： 用户数据库，其中的域给出了用户名、真实姓名、用户起始目录、加密口令和用户的其他信息。 </p>
+</li>
+<li><p>/etc/fdprm ： 软盘参数表，用以说明不同的软盘格式。可用 setfdprm 进行设置。更多的信息见 setfdprm 的帮助页。 </p>
+</li>
+<li><p>/etc/fstab ： 指定启动时需要自动安装的文件系统列表。也包括用 swapon -a 启用的 swap 区的信息。 </p>
+</li>
+<li><p>/etc/group ： 类似 /etc/passwd ，但说明的不是用户信息而是组的信息。包括组的各种数据。 </p>
+</li>
+<li><p>/etc/inittab ： init 的配置文件。 </p>
+</li>
+<li><p>/etc/issue ： 包括用户在登录提示符前的输出信息。通常包括系统的一段短说明或欢迎信息。具体内容由系统管理员确定。 </p>
+</li>
+<li><p>/etc/magic ： “file” 的配置文件。包含不同文件格式的说明， “file” 基于它猜测文件类型。 </p>
+</li>
+<li><p>/etc/motd ： motd 是 message of the day 的缩写，用户成功登录后自动输出。内容由系统管理员确定。常用于通告信息，如计划关机时间的警告等。 </p>
+</li>
+<li><p>/etc/mtab ： 当前安装的文件系统列表。由脚本 (scritp) 初始化，并由 mount 命令自动更新。当需要一个当前安装的文件系统的列表时使用 ( 例如 df 命令 ) 。 </p>
+</li>
+<li><p>/etc/shadow ： 在安装了影子 (shadow) 口令软件的系统上的影子口令文件。影子口令文件将 /etc/passwd 文件中的加密口令移动到 /etc/shadow 中，而后者只对超级用户 (root) 可读。这使破译口令更困难，以此增加系统的安全性。 </p>
+</li>
+<li><p>/etc/login.defs ： login 命令的配置文件。 </p>
+</li>
+<li><p>/etc/printcap ： 类似 /etc/termcap ，但针对打印机。语法不同。 </p>
+</li>
+<li><p>/etc/profile 、 /etc/csh.login 、 /etc/csh.cshrc ： 登录或启动时 bourne 或 cshells 执行的文件。这允许系统管理员为所有用户建立全局缺省环境。 </p>
+</li>
+<li><p>/etc/securetty ： 确认安全终端，即哪个终端允许超级用户 (root) 登录。一般只列出虚拟控制台，这样就不可能 ( 至少很困难 ) 通过调制解调器 (modem) 或网络闯入系统并得到超级用户特权。 </p>
+</li>
+<li><p>/etc/shells ： 列出可以使用的 shell 。 chsh 命令允许用户在本文件指定范围内改变登录的 shell 。提供一<br>台机器 ftp 服务的服务进程 ftpd 检查用户 shell 是否列在 /etc/shells 文件中，如果不是，将不允许该用户登录。 </p>
+</li>
+<li><p>/etc/termcap ： 终端性能数据库。说明不同的终端用什么 “ 转义序列 ” 控制。写程序时不直接输出转义<br>序列 ( 这样只能工作于特定品牌的终端 ) ，而是从 /etc/termcap 中查找要做的工作的正确序列。这样，多数的程序可以在多数终端上运行</p>
+</li>
+</ol>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2016/11/15/物理层/" style="float: left;">
+        ← 物理层
+    </a>
+    
+    
+    <a class="pull-right" href="/2016/11/14/什么是网关/">
+        什么是网关 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"></div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Chang. All Rights Reserved.
+                </p>
+                <p>Theme By Kieran</p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

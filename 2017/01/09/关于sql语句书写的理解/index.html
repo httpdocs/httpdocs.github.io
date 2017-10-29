@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>关于sql语句书写的理解 | what I Write</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="what I Write">
+    <meta name="author" content="John Chang">
+    <meta name="description" content="愿有岁月可回首 且以深情共白头" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="http://oh0ygta31.bkt.clouddn.com/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="what I Write" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/网络/" class="animsition-link">网络<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/计算机/" class="animsition-link">计算机<small>(15)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://httpdocs.github.io/whatilike/" class="animsition-link">我喜欢的网站</a></li>
+                    
+                    <li><a href="https://httpdocs.github.io/resume/" class="animsition-link">我的简历</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">ABOUT  ME</a></li>
+           
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="http://ogov1j6dy.bkt.clouddn.com/logo1.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">what I Write</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-01-09T15:02:21.000Z" itemprop="datePublished">
+          2017-01-09
+      </time>
+    
+</span>
+                <h1>关于sql语句书写的理解</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p><code>sql的基本结构</code></p>
+<p>sql主要是由select from where三个关键字组成，由这三个关键字可以写成大部分的sql查询语句，我根据<code>笛卡尔积是所有组合元组的集合，是个有所有组合的结果集</code>得出这个结论。也就是说只要在from后面接的表，没有用连接运算的话，都是直接产生一个笛卡尔积结果集，包含了所有组合结果，然后再用where子句的条件去进一步筛选，最后用select字句进行投影想要的字段，最终形成一个符合条件的结果集。</p>
+<pre><code>sql语句得执行效率很大程度取决于数据库模式的设计，目前主要是用ER模型进行设计，自己学习以后，其实联系着面向对象的思想来学比较好学，主要记住实体间最好相互独立（一个个实体类），实体通过联系连接其他实体(业务类)。当然我们在写ER模型的时候，属性怎么放是根据实体间的映射基数来做决定的。
+</code></pre><hr>
+<p><code>sql分类思想</code></p>
+<p>sql主要是通过实体集合和联系集间的集合关系，来完成筛选的。在这个基础上，sql还能进一步通过分类的思想，对结果集进行进一步的操作，<code>GROUP BY</code>关键字，可以实现元组的分类。在大的结果集上会根据group by 关键字后的属性名，进行分类，每个分类作为一个新的组别，然后你还可以用<code>HAVING子句</code>加上你对每个组别的筛选条件，这个过程和对表的where子句筛选一样。</p>
+<p>在分组的基础上，我们还可以使用聚集函数，聚集函数的使用范围其实你可以理解为一个个组，当你用了group by关键字后，sql执行引擎会按照你的分组属性，把大的表分为一个个小组，分别进行聚集函数运算；如果没有使用该关键字，那么默认整个大表是个单独的组。个人见解。</p>
+<hr>
+<p><code>嵌套子查询思想</code></p>
+<p>sql提供嵌套的子查询的思想，就是在基本查询结构里再嵌套基本查询结构，子查询可以嵌套在from子句后，也可以嵌套在where子句后。</p>
+<p><strong>where子句之后：</strong></p>
+<p>集合成员资格判断 <code>IN</code> 和<code>NOT IN</code>，翻译为逻辑语言为“属于”，“不属于”。<br>集合的比较 <code>SOME</code>和<code>ALL</code>，翻译为逻辑语言为“某一个”和“全部”。<br>空关系测试 <code>EXISTS</code>，<code>NOT EXISTS</code>对应逻辑语言为“存在”，“不存在”。<br>重复元组存在性测试 <code>UNIQUE</code>，判断集合内是否有重复元组。</p>
+<p><strong>from子句之后：</strong></p>
+<p>可以代替使用了GROUP BY子句的HAVING子句，用外层查询的WHERE代替HAVING。</p>
+<p><strong>with子句</strong></p>
+<p>定义临时关系，下面的查询马上用到该临时关系。<code>WITH（临时关系名） AS（查询语句）</code></p>
+<p><strong>标量子查询</strong></p>
+<p>只返回一个元组的子查询，通常是一个包含聚集函数的子查询。</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2017/01/10/关于sql的进一步理解/" style="float: left;">
+        ← 关于sql的进一步理解
+    </a>
+    
+    
+    <a class="pull-right" href="/2017/01/04/Servlet与JSP的关系理解/">
+        Servlet与JSP的关系理解 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"></div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Chang. All Rights Reserved.
+                </p>
+                <p>Theme By Kieran</p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

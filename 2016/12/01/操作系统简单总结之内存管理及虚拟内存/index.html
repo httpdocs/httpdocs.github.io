@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>操作系统简单总结之内存管理及虚拟内存 | what I Write</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="what I Write">
+    <meta name="author" content="John Chang">
+    <meta name="description" content="愿有岁月可回首 且以深情共白头" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="http://oh0ygta31.bkt.clouddn.com/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="what I Write" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/网络/" class="animsition-link">网络<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/计算机/" class="animsition-link">计算机<small>(15)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://httpdocs.github.io/whatilike/" class="animsition-link">我喜欢的网站</a></li>
+                    
+                    <li><a href="https://httpdocs.github.io/resume/" class="animsition-link">我的简历</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">ABOUT  ME</a></li>
+           
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="http://ogov1j6dy.bkt.clouddn.com/logo1.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">what I Write</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-12-01T13:49:04.000Z" itemprop="datePublished">
+          2016-12-01
+      </time>
+    
+</span>
+                <h1>操作系统简单总结之内存管理及虚拟内存</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p><code>操作系统简单总结——内存管理及虚拟内存</code></p>
+<ul>
+<li>内存管理的需求</li>
+<li>内存分区</li>
+<li>内存分段</li>
+<li>内存分页</li>
+</ul>
+<hr>
+<p><code>内存管理基本概念</code></p>
+<ul>
+<li>页框：内存中的固定长度块，<code>装载页</code>。</li>
+<li>页：磁盘中固定长度存储块</li>
+<li>段：磁盘中变长数据块，段可分成多个页。</li>
+</ul>
+<p><strong>重定位</strong><br>所谓重定位就是要把代码里出现的地址转换为实际的物理内存地址。</p>
+<p><img src="http://ogov1j6dy.bkt.clouddn.com/chongdingwei.png" alt=""></p>
+<p><strong>保护</strong><br>进程之间都有自己的代码段数据段之类的，进程需要对各自的代码数据进行保护，举个例子，用户进程就不能访问OS操作系统的相关代码数据。</p>
+<p>实现保护机制由CPU硬件完成，最重要的一个是程序状态字寄存器，还有就是基址寄存器，限长寄存器。</p>
+<hr>
+<p><code>内存管理之分区管理</code></p>
+<p><strong>静态分区</strong><br>系统启动的时候内存区域相应划分好，由OS进行维护分区表。缺点比较明显，进程数由于分区数确定而确定，容易产生区内碎片等。</p>
+<p><strong>动态分区</strong><br>OS从可用内存空闲区域中划分出区域给进程，运行完回收，若相邻内存空闲则合并。动态分区提高了内存的利用率，但是容易产生区间外碎片。</p>
+<p>动态分区分配策略：</p>
+<p><em>　FF(首次适配)
+</em>　NF（下次适配）<br><em>　BF（最佳适配）
+</em>　WF（最差适配）</p>
+<blockquote>
+<p>liunx,unix采用伙伴系统分配内存页框。就是相邻两个<code>页框块</code>（帧块），大小<br>必须一样。帧长4KB：帧数1,2,4,8,16,32…，尺寸4,8,16,32,64,128KB…</p>
+</blockquote>
+<p><img src="http://ogov1j6dy.bkt.clouddn.com/huoban.png" alt=""></p>
+<hr>
+<p><code>内存管理之分段机制</code></p>
+<blockquote>
+<p>程序员或编译器将程序按逻辑上有完整意义的段划分，段长不固定。</p>
+</blockquote>
+<p>每个进程维护一个段表。</p>
+<p>分段机制在具体机器上实现不一样，可以结合汇编程序的代码段，数据段，堆栈段等进行理解，比如X86机器的段长不超过64kb。</p>
+<blockquote>
+<p>逻辑地址与物理地址一个对应一个，只不过逻辑地址把一个地址给力人为划分，而物理地址则没有。举个例子：我的学号是2014<strong><strong>0127，2014</strong></strong>是什么我也不知道，01是我的班级号，27是我的班级排号。当我把学号给另一个人，他知道学号是按照班级分的，所以他会先去查一下01是哪个班级，然后再去找27这个人。</p>
+</blockquote>
+<p>地址转换是CPU自动完成的，怎么转要看OS是怎么管理内存。不需编程人员考虑。</p>
+<p><code>内存管理之分页机制</code></p>
+<blockquote>
+<p>在该内存模型中，页框是用来装载磁盘中的页的。(页，同样大小的逻辑块，大小一般是4KB,由系统决定)。</p>
+</blockquote>
+<p>OS把进程按照页框大小把需要进程分为一页一页的，为进程离散分配内存帧，这样每个进程的最后一页有内碎片，无外碎片，内存利用率高。</p>
+<p>实现分页机制，关键是<code>地址转换</code>。</p>
+<p>页式地址转换：由逻辑地址（页号，页内偏移量）和页表，得到物理地址。每一个进程都维护一个页表，而OS维护整个内存空闲页框表。</p>
+<p>地址具体转换的过程与分段机制一个道理。</p>
+<p><code>分页机制与分段机制实现相似，只是分页把内存粒度划分得更细罢了。</code></p>
+<blockquote>
+<p>现在的操作系统管理内存一般都是段页式结合。</p>
+</blockquote>
+<p><img src="http://ogov1j6dy.bkt.clouddn.com/fengyefengduan.png" alt=""></p>
+<hr>
+<p><code>虚拟内存(只记录最主要的)</code></p>
+<blockquote>
+<p>虚拟内存就是把整个磁盘当做是内存来使用。</p>
+</blockquote>
+<p>既然虚拟内存是把整个磁盘当成是内存来用，那么逻辑上可用的整个内存地址（即逻辑地址，也就是虚拟地址）就是磁盘大小，而真正的内存并没有这么大。所以经常会发生<code>缺页中断</code>。</p>
+<p>缺页中断发生就是因为访问了不在内存中的逻辑地址，这时候就需要去磁盘I/O把缺失的页装入内存，装完再重新执行发生中断的那条指令。因为这对程序员是不可见的，整个过程中内存就好像是整个磁盘那么大。</p>
+<p>当然，如果速度很慢的话，那虚拟内存就没什么用了。所以为了提高驻留集的命中率，最常用的是引入快表（TLB），里面存放着最常用的页。如何提高速度？因为虚拟地址需要转换，转换会有一个查询页表的过程，页表每个进程都有一个，存放着进程的页到内存页框（帧）的映射，得到地址的话（不缺页），会再去该内存地址取数据；如果缺页了，会去磁盘I/O缺失的页，再去内存取数据。而快表就存放着最常用的进程的页（局部性原理），先访问快表能提高访问速率。</p>
+<p><code>现代OS虚拟存储管理</code></p>
+<ul>
+<li>读取策略</li>
+<li>置换策略</li>
+<li>驻留集管理</li>
+<li>清除策略</li>
+<li>加载控制，防止抖动。</li>
+</ul>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2016/12/01/操作系统简单总结之进程管理/" style="float: left;">
+        ← 操作系统简单总结之进程管理
+    </a>
+    
+    
+    <a class="pull-right" href="/2016/12/01/操作系统简单总结之线程简介/">
+        操作系统简单总结之线程简介 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"></div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Chang. All Rights Reserved.
+                </p>
+                <p>Theme By Kieran</p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

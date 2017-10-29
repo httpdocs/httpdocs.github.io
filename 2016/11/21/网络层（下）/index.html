@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>网络层（下） | what I Write</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="what I Write">
+    <meta name="author" content="John Chang">
+    <meta name="description" content="愿有岁月可回首 且以深情共白头" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="http://oh0ygta31.bkt.clouddn.com/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="what I Write" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/网络/" class="animsition-link">网络<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/计算机/" class="animsition-link">计算机<small>(15)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://httpdocs.github.io/whatilike/" class="animsition-link">我喜欢的网站</a></li>
+                    
+                    <li><a href="https://httpdocs.github.io/resume/" class="animsition-link">我的简历</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">ABOUT  ME</a></li>
+           
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="http://ogov1j6dy.bkt.clouddn.com/logo1.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">what I Write</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-11-21T03:26:29.000Z" itemprop="datePublished">
+          2016-11-21
+      </time>
+    
+</span>
+                <h1>网络层（下）</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p><code>ICMP网际控制报文协议</code></p>
+<p>ICMP报文是在IP数据报的一部分。<br>因为IP数据报首部的检验和并不检验IP数据报的内容，因此不能保证经过传输的ICMP报文不产生差错。<br>ICMP报文分为差错报告报文和询问报文。</p>
+<p><code>路由选择算法</code></p>
+<p>所有的在自治系统内部的路由选择协议都是要寻找一条最短的路径。</p>
+<p><strong>内部网关协议之RIP协议</strong></p>
+<p>特点：</p>
+<ul>
+<li>只和相邻路由器交换信息</li>
+<li>交换整个网络链路状态的路由表（较大，使用UDP协议传输）</li>
+<li>固定时间间隔交换信息</li>
+</ul>
+<p>优点：简单，好消息传播得快<br>缺点：适用小网络（最多15个路由），坏消息传播得慢</p>
+<p><strong>内部网关协议之OSPF协议</strong></p>
+<p>特点：</p>
+<ul>
+<li>使用洪泛法向本自治系统内的所有区域发送信息</li>
+<li>只发送与自己相邻路由器的链路状态（使用IP数据报传输）</li>
+<li>只有当链路发生变化，才洪泛地去通知所有路由器</li>
+</ul>
+<p>为了更快地更新整个自治系统内的所有路由器的路由表，在自治系统内一般会划分区域。在各个区域会有专门的路由器与别的区域进行沟通。这些专门的路由器一般都在主干区域内，同时在主干区域内还会有个BGP发言人，负责与其他自治系统沟通。这样划区域后更新路由表速度就上去了。</p>
+<p><strong>外部网关协议BGP</strong></p>
+<p>首先要了解一下自治系统（AS），就是一个网络不希望外界知道自己内部的一些网络的布局细节或者使用的网络协议，然后通过一个BGP发言人（一个专门沟通的路由器，一般用边界路由器）来与别的AS进行联系的网络，比如我们的电信ISP就是一个自治系统。</p>
+<p>类似OSPF里面划区域。就是各个自治系统都挑出一个BGP发言人，专门负责与别的自治系统沟通。</p>
+<p><code>IP多播</code></p>
+<p>在互联网上进行多播就叫IP多播，IP多播所传送的分组需要使用多播IP地址。</p>
+<p>多播通过使用讲网络上的IP进行分组的方式，通过建立一个多播组（有特定的标识符），然后想要进行多播的主机加入到这个组（会设法将多播组标识和该主机的IP进行关联），然后源地址想要发送数据的时候只需要将目的地址改为多播组的标识就可以进行多播了。而多播组的标识其实就是D类的IP地址，一个组使用一个D类IP。</p>
+<p>除了路由器要支持多播，实现多播还要使用两个协议，IGMP网际组管理协议和多播路由选择协议。</p>
+<p><code>隧道技术</code></p>
+<p>隧道技术使用到很多地方，主要是再封装的思想。比如两个要进行多播的路由器，他们要经过一个不支持多播的网络，那么他们就要把目前的IP数据报，当成是数据部分插入到一个新的IP数据报中，这样就可以通过该不支持多播的网络，进行数据传输了。</p>
+<p><code>虚拟专用网VPN</code></p>
+<p>要了解虚拟专用网，首先先知道什么是专用网。所谓专用网，就是一些被规定用做特殊用途的网络地址。</p>
+<p>在IP地址块中，从10.0.0.0到10.255.255.255，从172.16.0.0到172.31.255.255，从192.168.0.0到192.168.255.255，这三个地址块，是专用地址。在互联网中的所有路由器，对目的地址是专用地址的数据报一律不转发。</p>
+<p>这些地址块便可以拿来内部机构使用，自己搭建内部网络，给每台主机分配这些专用IP地址，然后进行沟通。若是一个公司想要在两个不同的地方搭建利用专用地址搭建网络（虚拟专用网），刚才说到互联网中的路由器不会转发这些目的地址是专用地址的数据报。那么怎么办呢，这个时候还是要使用隧道技术。只需要在两个地方的各自路由器转发数据的时候用路由器的全球IP地址再封装一下我们的前一个IP数据报（作为数据部分），然后通过网络传输就可以啦。</p>
+<p>再说NAT地址转换。如果使用了专用地址的主机还想要使用全球IP地址与互联网通信，而不只是与内部人员沟通。这时候就需要那个与外界互联网沟通的路由器转一个NAT转换软件。通过给每个内部IP对应一个端口，轮流使用有限的全球IP地址，来实现与互联网沟通。</p>
+<p><img src="http://ogov1j6dy.bkt.clouddn.com/20161116net2.png" alt=""></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2016/11/22/h5响应式页面图片处理/" style="float: left;">
+        ← h5响应式页面图片处理
+    </a>
+    
+    
+    <a class="pull-right" href="/2016/11/18/网络层（上）/">
+        网络层（上） →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"></div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Chang. All Rights Reserved.
+                </p>
+                <p>Theme By Kieran</p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

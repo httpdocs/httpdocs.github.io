@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>关于线性表的思考 | what I Write</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="what I Write">
+    <meta name="author" content="John Chang">
+    <meta name="description" content="愿有岁月可回首 且以深情共白头" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="http://oh0ygta31.bkt.clouddn.com/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="what I Write" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/网络/" class="animsition-link">网络<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/计算机/" class="animsition-link">计算机<small>(15)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://httpdocs.github.io/whatilike/" class="animsition-link">我喜欢的网站</a></li>
+                    
+                    <li><a href="https://httpdocs.github.io/resume/" class="animsition-link">我的简历</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">ABOUT  ME</a></li>
+           
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="http://ogov1j6dy.bkt.clouddn.com/logo1.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">what I Write</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-12-06T02:42:57.000Z" itemprop="datePublished">
+          2016-12-06
+      </time>
+    
+</span>
+                <h1>关于线性表的思考</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p><code>线性表的思考</code></p>
+<p>之前在学习C的时候，曾经用C实现过基本的数据结构。现在对计算机体系有了较全面，较深入的认识后，想对之前的数据结构重新梳理，构建自己的知识体系。</p>
+<p>以前学C的时候一直都不在状态，虽然课程设计什么的都能够独立完成，但是历程很心酸，现在回想一下，主要是自己在用代码实现逻辑的时候，太混乱，加上对C中的指针并未真正的理解，毕竟大一才真正接触计算机，我经常这样安慰自己。</p>
+<p>那么现在先简单记录一下对以前不懂的地方的重新理解。</p>
+<ul>
+<li>首先是指针，所谓指针，就是地址。理解地址这个概念，首先还要先理解计算机的内存模型，理解变量空间值这些基本的概念。然后是指针变量，所谓指针变量，就是存放指针的变量，也可以说是存放地址的变量。在C中，很多时候我们不会过分去区分指针和指针变量，很多时候都说指针来代替指针变量，如果理解得通就好，我个人喜欢对两者加以区分，这样我的逻辑才不会乱。</li>
+<li>然后是关于指针变量的使用，在C里，我们会用malloc()之类的函数去申请空间；在java，会用操作符new去为变量申请内存空间；请注意，无论是C还是Java，经过上述操作后都会返回<code>一个地址给指针变量</code>。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">String str = <span class="keyword">new</span> String(<span class="string">"i am a string！"</span>);<span class="comment">//比如这里通过new操作后，会返回一个字符串"i am a string"的所在内存地址给str，而str就是存放String类型变量的指针变量。</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>以前我会想那str是放在内存中的哪里，学了汇编和jvm的一些东西后，原来str也在内存中，只是在一个叫栈的内存中。在那个内存里就放着str字符串所在内存的地址，通过这个地址可以拿到他的值。</p>
+</blockquote>
+<p><img src="http://oh0ygta31.bkt.clouddn.com/duizhan3.png" alt=""></p>
+<hr>
+<p><code>然后是线性表的实现</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> sun.applet.Main;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 节点类</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> john</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LNode</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> data;</div><div class="line">	<span class="keyword">private</span> LNode next;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getData</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> data;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> LNode <span class="title">getNext</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> next;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(<span class="keyword">int</span> data)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.data = data;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNext</span><span class="params">(LNode next)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.next = next;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 在这里说一下下面的方法中常出现的cursor这个游标变量，其实他就是一个临时变量，头结点指针不能移动，移了就丢了整个链表，那么就要一个临时变量来负责遍历。</span></div><div class="line"><span class="comment"> * 整个线性表可以这样理解，头结点就是数组名，cursor就是我们用来循环打印数组用到的临时变量i。</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> john</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkList</span> </span>&#123;</div><div class="line">	<span class="keyword">public</span> LNode head;<span class="comment">//头节点指针变量，链表入口</span></div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 初始化链表</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> datas 数组结点</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initList</span><span class="params">(<span class="keyword">int</span> [] datas)</span> </span>&#123;</div><div class="line">		LNode tail = <span class="keyword">new</span> LNode();<span class="comment">//为结点分配堆内存，尾指针变量指向其。</span></div><div class="line">		head=tail;<span class="comment">//开始时候头指针变量与尾指针变量指向同一个结点。</span></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; datas.length; i++) &#123;</div><div class="line">			LNode newNode = <span class="keyword">new</span> LNode();</div><div class="line">			newNode.setData(datas[i]);</div><div class="line">			newNode.setNext(<span class="keyword">null</span>);</div><div class="line">			tail.setNext(newNode);</div><div class="line">			tail=newNode;</div><div class="line">		&#125;		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 查找结点是否存在某个值</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> value 被查找的值</span></div><div class="line"><span class="comment">	 * <span class="doctag">@return</span> 找到返回真，否则假</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchInLink</span><span class="params">(<span class="keyword">int</span> value)</span></span>&#123;</div><div class="line">		LNode cursor;<span class="comment">//一个游标指针变量，用来遍历链表</span></div><div class="line">		cursor = head;</div><div class="line">		<span class="keyword">while</span>(cursor.getNext()!=<span class="keyword">null</span>)&#123;<span class="comment">//如果下一个结点不空</span></div><div class="line">			cursor = cursor.getNext();<span class="comment">//cursor指向其</span></div><div class="line">			<span class="keyword">if</span>(cursor.getData()==value)&#123;</div><div class="line">				System.out.println(<span class="string">"找到"</span>+value);</div><div class="line">				<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">deleteFromList</span><span class="params">(<span class="keyword">int</span> value)</span></span>&#123;</div><div class="line">		LNode cursor;<span class="comment">//同理，只是用它来遍历链表</span></div><div class="line">		cursor = head;</div><div class="line">		<span class="keyword">while</span> (cursor.getNext()!=<span class="keyword">null</span>) &#123;</div><div class="line">			</div><div class="line">			<span class="keyword">if</span>(cursor.getNext().getData()==value)&#123;</div><div class="line">				LNode deleteNode = cursor.getNext();<span class="comment">//定义一个节点变量指向要被删除的节点</span></div><div class="line">				cursor.setNext(deleteNode.getNext());<span class="comment">//被删除的节点的上一个节点指向被删除的节点的下一个节点。</span></div><div class="line">				System.out.println(<span class="string">"删除成功"</span>+deleteNode.getData());</div><div class="line">				<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">			&#125;</div><div class="line">			cursor = cursor.getNext();</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"没有，删除失败"</span>);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printLink</span><span class="params">()</span> </span>&#123;</div><div class="line">		LNode cursor;<span class="comment">//同理，只是用它来遍历链表</span></div><div class="line">		cursor = head;</div><div class="line">		<span class="keyword">while</span> (cursor.getNext()!=<span class="keyword">null</span>) &#123;</div><div class="line">			cursor = cursor.getNext();</div><div class="line">			System.out.println(cursor.getData());</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">			<span class="keyword">int</span>[] datas = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;<span class="comment">//数组常量只有在初始化的时候才能进行</span></div><div class="line">			LinkList linkList = <span class="keyword">new</span> LinkList();</div><div class="line">			linkList.initList(datas);</div><div class="line">			linkList.printLink();</div><div class="line">			linkList.searchInLink(<span class="number">5</span>);</div><div class="line">			linkList.deleteFromList(<span class="number">6</span>);</div><div class="line">			linkList.printLink();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p><code>简单双向循环链表实现</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 双向循环链表的结点类</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> john</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubleLNode</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> data;<span class="comment">//结点数据</span></div><div class="line">	<span class="keyword">private</span> DoubleLNode preNode;<span class="comment">//前驱结点</span></div><div class="line">	<span class="keyword">private</span> DoubleLNode nextNode;<span class="comment">//后续结点</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getData</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> data;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> DoubleLNode <span class="title">getPreNode</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> preNode;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> DoubleLNode <span class="title">getNextNode</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> nextNode;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(<span class="keyword">int</span> data)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.data = data;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPreNode</span><span class="params">(DoubleLNode preNode)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.preNode = preNode;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNextNode</span><span class="params">(DoubleLNode nextNode)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.nextNode = nextNode;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoubleLinkList</span> </span>&#123;</div><div class="line">	<span class="keyword">public</span> DoubleLNode head;<span class="comment">//头结点</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">int</span> size;<span class="comment">//链表大小</span></div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 初始化一个双向循环链表</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> datas</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initList</span><span class="params">(<span class="keyword">int</span>[] datas)</span> </span>&#123;</div><div class="line">		head = <span class="keyword">new</span> DoubleLNode();</div><div class="line">		head.setNextNode(head);<span class="comment">//让后续指针变量指向头，主要是在判断是否链表只有头结点的时候方便判断</span></div><div class="line">		head.setPreNode(head);<span class="comment">//同上</span></div><div class="line">		DoubleLNode tail;<span class="comment">//定义一个尾指针变量</span></div><div class="line">		tail = head;<span class="comment">//首先尾指针变量是指向头指针结点。</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;datas.length;i++)&#123;</div><div class="line">			DoubleLNode newDNode = <span class="keyword">new</span> DoubleLNode();</div><div class="line">			newDNode.setData(datas[i]);<span class="comment">//设置结点值</span></div><div class="line">			newDNode.setPreNode(tail);</div><div class="line">			tail.setNextNode(newDNode);</div><div class="line">			newDNode.setNextNode(head);</div><div class="line">			head.setPreNode(newDNode);		</div><div class="line">			tail=newDNode;<span class="comment">//tail指针变量指向最新的结点</span></div><div class="line">		&#125;		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 顺序打印一个双向循环链表</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printListNormally</span><span class="params">()</span> </span>&#123;</div><div class="line">		DoubleLNode cursor ;<span class="comment">//定义一个游标指针变量</span></div><div class="line">		cursor = head;</div><div class="line">		<span class="keyword">while</span>(cursor.getNextNode()!=head)&#123;</div><div class="line">			cursor = cursor.getNextNode();</div><div class="line">			System.out.println(cursor.getData());</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 倒叙打印</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printNotNormal</span><span class="params">()</span> </span>&#123;</div><div class="line">		DoubleLNode cursor ;<span class="comment">//定义一个游标指针变量</span></div><div class="line">		cursor = head;</div><div class="line">		<span class="keyword">while</span>(cursor.getPreNode()!=head)&#123;</div><div class="line">			cursor = cursor.getPreNode();</div><div class="line">			System.out.println(cursor.getData());</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 简单地最末尾的位置插入</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> value 插入的数值</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertIntoList</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">		DoubleLNode newLNode = <span class="keyword">new</span> DoubleLNode();</div><div class="line">		newLNode.setData(value);</div><div class="line">		DoubleLNode lastLNode;<span class="comment">//最后的那个结点</span></div><div class="line">		lastLNode = head.getPreNode();</div><div class="line">		lastLNode.setNextNode(newLNode);</div><div class="line">		newLNode.setPreNode(lastLNode);</div><div class="line">		newLNode.setNextNode(head);</div><div class="line">		head.setPreNode(newLNode);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> [] a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</div><div class="line">		DoubleLinkList doubleLinkList  = <span class="keyword">new</span> DoubleLinkList();</div><div class="line">		doubleLinkList.initList(a);</div><div class="line">		System.out.println(<span class="string">"顺序打印"</span>);</div><div class="line">		doubleLinkList.printListNormally();</div><div class="line">		System.out.println(<span class="string">"倒序打印"</span>);</div><div class="line">		doubleLinkList.printNotNormal();</div><div class="line">		doubleLinkList.insertIntoList(<span class="number">10</span>);</div><div class="line">		System.out.println(<span class="string">"插入后顺序打印"</span>);</div><div class="line">		doubleLinkList.printListNormally();</div><div class="line">		System.out.println(<span class="string">"插入后倒序打印"</span>);</div><div class="line">		doubleLinkList.printNotNormal();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2016/12/07/简单十字链表java实现/" style="float: left;">
+        ← 简单十字链表java实现
+    </a>
+    
+    
+    <a class="pull-right" href="/2016/12/03/今天对于怎么去写程序好像有了新认识/">
+        今天对于怎么去写程序好像有了新认识 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"></div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Chang. All Rights Reserved.
+                </p>
+                <p>Theme By Kieran</p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

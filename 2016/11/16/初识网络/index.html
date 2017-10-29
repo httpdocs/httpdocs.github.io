@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>初识网络 | what I Write</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="what I Write">
+    <meta name="author" content="John Chang">
+    <meta name="description" content="愿有岁月可回首 且以深情共白头" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="http://oh0ygta31.bkt.clouddn.com/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="what I Write" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
+				    
+				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/网络/" class="animsition-link">网络<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/计算机/" class="animsition-link">计算机<small>(15)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://httpdocs.github.io/whatilike/" class="animsition-link">我喜欢的网站</a></li>
+                    
+                    <li><a href="https://httpdocs.github.io/resume/" class="animsition-link">我的简历</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">ABOUT  ME</a></li>
+           
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="http://ogov1j6dy.bkt.clouddn.com/logo1.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">what I Write</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            
+                            <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-11-15T16:00:26.000Z" itemprop="datePublished">
+          2016-11-16
+      </time>
+    
+</span>
+                <h1>初识网络</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p><strong>计算机网络相关内容的小记</strong></p>
+<p><code>互联网组成</code></p>
+<p>边缘部分</p>
+<p>主机通信方式：</p>
+<ul>
+<li><p>客户-服务器方式</p>
+</li>
+<li><p>对等连接方式（P2P）</p>
+</li>
+</ul>
+<p>核心部分</p>
+<p>在核心部分起特殊作用的是路由器，它是一种专用计算机，但不是主机。</p>
+<p><strong>主要是实现分组交换，存储和转发</strong></p>
+<ul>
+<li><p>电路交换：建立连接，整个报文从源到终点，关闭连接</p>
+</li>
+<li><p>报文交换：整个报文传送到相邻节点，存储，查找交换机的<strong>转发表</strong>，转发</p>
+</li>
+<li><p>分组交换：单个分组（报文一部分）传送到相邻节点，存储，查找路由器的<strong>路由表</strong>，转发</p>
+</li>
+</ul>
+<p><code>计算机网络性能</code></p>
+<ul>
+<li><p>速率</p>
+</li>
+<li><p>带宽</p>
+</li>
+<li><p>吞吐量</p>
+</li>
+<li><p>时延</p>
+</li>
+<li><p>发送时延</p>
+</li>
+<li><p>传播时延</p>
+</li>
+</ul>
+<p><code>计算机网络体系结构</code></p>
+<ul>
+<li>OSI的七层协议体系结构</li>
+</ul>
+<ul>
+<li><p>应用层</p>
+</li>
+<li><p>表示层</p>
+</li>
+<li><p>会话层</p>
+</li>
+<li><p>运输层</p>
+</li>
+<li><p>网络层</p>
+</li>
+<li><p>数据链路层</p>
+</li>
+<li><p>物理层</p>
+</li>
+</ul>
+<ul>
+<li>TCP IP四层协议体系结构</li>
+</ul>
+<ul>
+<li><p>应用层</p>
+</li>
+<li><p>运输层</p>
+</li>
+<li><p>网际层</p>
+</li>
+<li><p>网络接口层</p>
+</li>
+</ul>
+<ul>
+<li>理论上效果最好的五层协议体系结构</li>
+</ul>
+<ul>
+<li><p>应用层</p>
+</li>
+<li><p>运输层</p>
+</li>
+<li><p>网络层</p>
+</li>
+<li><p>数据链路层</p>
+</li>
+<li><p>物理层</p>
+</li>
+</ul>
+<p><strong>在学习网络的时候，一般我们较关心在协议栈中水平方向的各层。</strong></p>
+<ul>
+<li><p>邮局</p>
+<ul>
+<li>用户有个物件要送</li>
+<li>来到邮局，告知邮局有邮件要发，填写邮寄单，包括目的地址、源地址、寄的物件类型和邮寄方式</li>
+<li>快递员装箱运往分发中心，然后分发中心根据目的地址和邮寄方式（如空运或者是陆运），运往对端分发中心</li>
+<li>到达对方分发中心，捡包员又根据目的地址，发往下一级物流节点，直到到达离目的地最近的快递点</li>
+<li>最后由快递员送货上门</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>协议层</p>
+<ul>
+<li>应用层（原始数据）</li>
+<li>传输层（IP封装，协议封装）</li>
+<li>网络层（路由寻址，将数据送到对端路由交换中心）</li>
+<li>数据链路层（数据分发到下级节点）</li>
+<li>物理层（将数据包转换为适合在电缆、光缆中传播的物理信号，送到目的地终端）</li>
+</ul>
+</li>
+</ul>
+<p>在发送方从上到下逐层传递的过程中，每层都要加上适当的控制信息，即图中和H7、H6、…、H1，统称为报头。到最底层成为由“0”或“1”组成和数据比特流，然后再转换为电信号在物理媒体上传输至接收方。接收方在向上传递时过程正好相反，要逐层剥去发送方相应层加上的控制信息。</p>
+<p>因接收方的某一层不会收到底下各层的控制信息，而高层的控制信息对于它来说又只是透明的数据，所以它只阅读和去除本层的控制信息，并进行相应的协议操作。发送方和接收方的对等实体看到的信息是相同的，就好像这些信息通过虚通信直接给了对方一样。 </p>
+<p>(1)物理层——定义了为建立、维护和拆除物理链路所需的机械的、电气的、功能的和规程的特性，其作用是使原始的数据比特流能在物理媒体上传输。具体涉及接插件的规格、“0”、“1”信号的电平表示、收发双方的协调等内容。</p>
+<p>(2)数据链路层——比特流被组织成数据链路协议数据单元(通常称为帧)，并以其为单位进行传输，帧中包含地址、控制、数据及校验码等信息。数据链路层的主要作用是通过校验、确认和反馈重发等手段，将不可靠的物理链路改造成对网络层来说无差错的数据链路。数据链路层还要协调收发双方的数据传输速率，即进行流量控制，以防止接收方因来不及处理发送方来的高速数据而导致缓冲器溢出及线路阻塞。</p>
+<p>(3)网络层——数据以网络协议数据单元(分组)为单位进行传输。网络层关心的是通信子网的运行控制，主要解决如何使数据分组跨越通信子网从源传送到目的地的问题，这就需要在通信子网中进行路由选择。另外，为避免通信子网中出现过多的分组而造成网络阻塞，需要对流入的分组数量进行控制。当分组要跨越多个通信子网才能到达目的地时，还要解决网际互连的问题。</p>
+<p>(4)运输层——是第一个端–端，也即主机–主机的层次。运输层提供的端到端的透明数据运输服务，使高层用户不必关心通信子网的存在，由此用统一的运输原语书写的高层软件便可运行于任何通信子网上。运输层还要处理端到端的差错控制和流量控制问题。</p>
+<p>(5)会话层——是进程–进程的层次，其主要功能是组织和同步不同的主机上各种进程间的通信(也称为对话)。会话层负责在两个会话层实体之间进行对话连接的建立和拆除。在半双工情况下，会话层提供一种数据权标来控制某一方何时有权发送数据。会话层还提供在数据流中插入同步点的机制，使得数据传输因网络故障而中断后，可以不必从头开始而仅重传最近一个同步点以后的数据。</p>
+<p>(6)表示层——为上层用户提供共同的数据或信息的语法表示变换。为了让采用不同编码方法的计算机在通信中能相互理解数据的内容，可以采用抽象的标准方法来定义数据结构，并采用标准的编码表示形式。表示层管理这些抽象的数据结构，并将计算机内部的表示形式转换成网络通信中采用的标准表示形式。数据压缩和加密也是表示层可提供的表示变换功能。</p>
+<p>(7)应用层是开放系统互连环境的最高层。不同的应用层为特定类型的网络应用提供访问OSI环境的手段。网络环境下不同主机间的文件传送访问和管理(FTAM)、传送标准电子邮件的文电处理系统(MHS)、使不同类型的终端和主机通过网络交互访问的虚拟终端(VT)协议等都属于应用层的范畴。</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2016/11/16/每天一个linux/" style="float: left;">
+        ← 每天一个linux命令
+    </a>
+    
+    
+    <a class="pull-right" href="/2016/11/15/物理层/">
+        物理层 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"></div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Chang. All Rights Reserved.
+                </p>
+                <p>Theme By Kieran</p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/redpipeapple" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    <li><a href="https://plus.google.com/u/0/105313890309653129166" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
