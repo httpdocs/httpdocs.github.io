@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2017/3 | what I Write</title>
+  <title>记录一下自己的ubuntu系统的安装美化历程 | what I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -54,7 +54,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -173,66 +173,70 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(http://ogov1j6dy.bkt.clouddn.com/my_bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/03/02/Eclipse有关的配置和使用/">Eclipse有关的配置和使用</a></h4>
-                            
-                            <p><time datetime="2017-03-02T02:38:30.000Z"><a href="/2017/03/02/Eclipse有关的配置和使用/">2017-03-02</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-11-14T11:47:47.000Z" itemprop="datePublished">
+          2017-11-14
+      </time>
+    
+</span>
+                <h1>记录一下自己的ubuntu系统的安装美化历程</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="安装ubuntu-16-04"><a href="#安装ubuntu-16-04" class="headerlink" title="安装ubuntu-16.04"></a>安装ubuntu-16.04</h1><p>安装ubuntu系统，主要就是把ubuntu的iso文件刻录进去U盘，然后电脑开机通过usb启动就行。主要是一下几个步骤:</p>
+<ul>
+<li>准备个u盘，在win下使用ultra-iso软件进行刻录。</li>
+<li>插入U盘。</li>
+<li>关闭笔记本的快速启动。</li>
+<li>进入BIOS设置从usb启动。</li>
+<li>开机装系统。</li>
+</ul>
+<p>这个最简单的单系统安装，会覆盖了之前的系统；双系统的话，在安装之前，要进行分区，以及格式化磁盘的准备工作，双系统安装已经简化了很多，在系统安装过程中，会自动得设置开机启动项。唯一要注意的就是装对地方。</p>
+<h1 id="配置网络环境"><a href="#配置网络环境" class="headerlink" title="配置网络环境"></a>配置网络环境</h1><p>当进入Ubuntu之后，如果你是用有线网卡的话，没问题，有网络，直接可以用。但是如果你是用WIFI的话，那就应该重新装无线网卡驱动。像我就是没有网线，也连接不了wifi，这个时候就直接掏出你的手机，数据线链接好电脑，直接从usb共享数据，便可以上网了。</p>
+<p>紧接着：</p>
+<ul>
+<li>更新软件源，安装配置无线网卡驱动。</li>
+</ul>
+<h1 id="安装sogou中文输入法"><a href="#安装sogou中文输入法" class="headerlink" title="安装sogou中文输入法"></a>安装sogou中文输入法</h1><p>搜狗中文输入法是linux下我个人觉得最好用的，必须装上，不然我还不想用linux系统。安装过程是以来fcitx的，所以也要安装fcitx。具体过程需要自己百度。</p>
+<h1 id="安装桌面环境"><a href="#安装桌面环境" class="headerlink" title="安装桌面环境"></a>安装桌面环境</h1><p>ubuntu下面，可以安装很多不同风格的桌面环境，根据个人喜好来直接下载安装，可以直接配置成mac风格的。</p>
+<p>需要注意的:</p>
+<ul>
+<li>很多桌面风格，未在ubuntu软件源中，需要自己去<a href="https://launchpad.net/ubuntu/+ppas" target="_blank" rel="external">ubuntu的PPA中心</a>去找ppa源，添加进去。</li>
+<li>下载Unity Tweak Tool来管理你的ubuntu,比系统自带的权限多。</li>
+<li>安装Docky之类的侧边栏管理软件（实现模仿mac风格），我不是很喜欢，所以后来卸载了。</li>
+<li>下载桌面主题风格，然后通过Unity Tweak Tool来设置。我用的是Flatabulous主题，图标是Ultra-flat的扁平化风格。直接在ppa搜索名称可以找到。</li>
+</ul>
+<h1 id="配置VIM"><a href="#配置VIM" class="headerlink" title="配置VIM"></a>配置VIM</h1><p>配置VIM之前，首先需要在ubuntu上重新安装一下vim，因为ubuntu上的vim并不是完整版本，对于大键盘，插入模式方向键是不能用的，有点难受。</p>
+<p>配置主要操作：</p>
+<ul>
+<li>首先是下载安装oh-my-zsh，这个终端完美。</li>
+<li>然后在github上找一下vim的配置文件，直接覆盖了vimrc即可。<a href="https://github.com/ma6174/vim" target="_blank" rel="external">我vimrc</a></li>
+</ul>
+<h1 id="安装ubuntu上的软件"><a href="#安装ubuntu上的软件" class="headerlink" title="安装ubuntu上的软件"></a>安装ubuntu上的软件</h1><p>这里有太多软件可以装了，虽然软件的种类不及windows，但是你在linux里有很大的自由，你可以自由选择软件进行安装。</p>
+<pre><code>最后说一句:既然选择了拥抱linux，就选择了无尽的折腾。
+</code></pre>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2017/11/14/ubuntu16-04中设置python3为默认的，以及一些python3的库安装/">
+        ubuntu16.04中设置python3为默认的，以及一些python3的库安装 →
+    </a>
+    
+</nav>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决。</p>
-        </div>
+        <div class="duoshuo"></div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
