@@ -77,9 +77,11 @@
 				  	
 				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
 				    
-				    <li><a href="/categories/java/" class="animsition-link">java<small>(9)</small></a></li>
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(10)</small></a></li>
 				    
 				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(12)</small></a></li>
 				    
@@ -191,13 +193,14 @@
 <pre><code>every derived table must have its own alias
 </code></pre><p>这个告诉我们就是在用多表查询的时候要给每个取到的表给个自己的别名。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//这段sql代码在mysql会报错</span></div><div class="line"><span class="function">select <span class="title">max</span><span class="params">(enrollment)</span>,<span class="title">min</span><span class="params">(enrollment)</span></span></div><div class="line"><span class="function"><span class="title">from</span><span class="params">(</span></span></div><div class="line"><span class="function"><span class="params">select sec_id,semester,year,count(distinct id)</span>as enrollment</span></div><div class="line"><span class="function">from takes</span></div><div class="line"><span class="function">group by sec_id,semester,year</span></div><div class="line"><span class="function">)</span></div><div class="line"><span class="function"></span></div><div class="line"><span class="function"><span class="comment">//给子查询返回的新关系取个别名，我随意叫个myalias。</span></span></div><div class="line"><span class="function">select <span class="title">max</span><span class="params">(enrollment)</span>,<span class="title">min</span><span class="params">(enrollment)</span></span></div><div class="line"><span class="function"><span class="title">from</span><span class="params">(</span></span></div><div class="line"><span class="function"><span class="params">select sec_id,semester,year,count(distinct id)</span>as enrollment</span></div><div class="line"><span class="function">from takes</span></div><div class="line"><span class="function">group by sec_id,semester,year</span></div><div class="line"><span class="function">)as myalias</span>;</div></pre></td></tr></table></figure>
+
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2017/02/10/maven-添加镜像仓库/" style="float: left;">
-        ← maven 添加镜像仓库
+    <a class="pull-left" href="/2017/01/15/mysql多列模糊查询实现/" style="float: left;">
+        ← mysql模糊查询
     </a>
     
     
