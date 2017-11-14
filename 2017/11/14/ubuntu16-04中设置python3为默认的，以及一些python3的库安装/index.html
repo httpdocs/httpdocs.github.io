@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>sublimeText3安装emmet插件 | what I Write</title>
+  <title>ubuntu16.04中设置python3为默认的，以及一些python3的库安装 | what I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -179,49 +179,49 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-12-15T11:46:45.000Z" itemprop="datePublished">
-          2016-12-15
+      <time datetime="2017-11-14T09:07:21.000Z" itemprop="datePublished">
+          2017-11-14
       </time>
     
 </span>
-                <h1>sublimeText3安装emmet插件</h1>
+                <h1>ubuntu16.04中设置python3为默认的，以及一些python3的库安装</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<blockquote>
-<p>首先记住，所有插件都可以在package Control官网下载，这是我写完这篇文章后明白的。</p>
-</blockquote>
-<p><a href="https://packagecontrol.io/" target="_blank" rel="external">package Control官网</a></p>
-<p><code>sublime Text3安装Emmet插件</code></p>
-<p>首先装插件的时候因为报了网络的错误，导致不能联网自动下载插件，所以必须手动下载。</p>
-<p>首先插件是放在Preferences-&gt;Browser packages下的</p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20161215195024.png" alt=""></p>
-<p>然后就是需要下载对应的电脑版本的Emmet和一个PyV8引擎。</p>
+      		<p><strong>利用alternatives机制更改python3为默认</strong></p>
+<p>shell中执行</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <span class="number">100</span></div><div class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 <span class="number">150</span></div></pre></td></tr></table></figure>
 <hr>
-<p><code>window64位为例</code></p>
-<p><a href="https://github.com/sergeche/emmet-sublime" target="_blank" rel="external">点击此处，Emmet下载</a></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20161215195833.png" alt=""></p>
-<p><a href="https://github.com/emmetio/pyv8-binaries" target="_blank" rel="external">点击此处，pyv8下载</a></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/%E5%8F%AE%E5%92%9A.png" alt=""></p>
+<p><strong>安装python3的包</strong></p>
+<ul>
+<li><p>Numpy  <code>sudo apt-get install python-numpy</code></p>
+</li>
+<li><p>Scipy  <code>sudo apt-get install python-scipy</code></p>
+</li>
+<li><p>Matplotlib  <code>sudo apt-get install python-matplotlib</code></p>
+</li>
+<li><p>Pandas <code>sudo apt-get install python-pandas</code></p>
+</li>
+<li><p>statsModel  <code>sudo apt-get install python-statsmodels</code></p>
+</li>
+<li><p>scikit-learn <code>sudo apt-get install python-sklearn</code></p>
+</li>
+<li><p>xgboost <code>sudo -H pip install --pre xgboost</code></p>
+</li>
+<li><p>seaborn <code>sudo pip install seaborn</code></p>
+</li>
+</ul>
 <hr>
-<p><code>最后</code></p>
-<p>然后把这俩个文件放到<code>Preferences-&gt;Browser packages</code>下。</p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20161215200231.png" alt=""></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720161215200624.png" alt=""></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20161215200504.png" alt=""></p>
-
+<pre><code>如果要切换到python2，执行`sudo update-alternatives --config python`，然后在py2下安装的包，都是py2对应的安装包。
+</code></pre>
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/12/18/HTML-DOM的理解/" style="float: left;">
-        ← HTML DOM的理解
-    </a>
     
-    
-    <a class="pull-right" href="/2016/12/15/tomcat搞定第一个servlet程序的配置/">
-        tomcat搞定第一个servlet程序的配置 →
+    <a class="pull-right" href="/2017/11/14/在ubuntu上搭建php环境（LAMP/">
+        在ubuntu上搭建php环境（LAMP) →
     </a>
     
 </nav>
