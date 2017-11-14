@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>数据链路层 | what I Write</title>
+  <title>Category: java 框架 | what I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -54,7 +54,7 @@
 </head>
 
 <!--
-<body class="post-template">
+<body class="home-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -177,98 +177,66 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      
-<section id="intro">
-    <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2016-11-15T16:08:55.000Z" itemprop="datePublished">
-          2016-11-16
-      </time>
-    
-</span>
-                <h1>数据链路层</h1>
+      <!-- ============================ Hero Image =========================== -->
+
+<section id="hero" class="scrollme">
+    <div class="container-fluid element-img" style="background: url(http://ogov1j6dy.bkt.clouddn.com/my_bg_img.jpg) no-repeat center center fixed;background-size: cover">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                    <div>
+                        
+                        <h2></h2>
+                        <p></p>
+                        
+
+                    </div>
+                </div>
             </div>
+            <!-- // .col-md-12 -->
         </div>
-        <div class="col-md-8 col-md-offset-2">
-      		<pre><code>数据链路层的点对点信道和广播信道，PPP协议和CSMA/CD协议的特点
-</code></pre><blockquote>
-<p>数据链路层的点对点信道和广播信道<br>数据链路层使用的信道主要有以下两种类型：</p>
-</blockquote>
-<ul>
-<li><p>点对点信道。这种信道使用一对一的点对点通信方式。</p>
-</li>
-<li><p>广播信道。这种信道使用一对多的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的共享信道协议来协调这些主机的数据发送。 </p>
-</li>
-<li><p>数据链路层传送的是<strong>帧</strong></p>
-</li>
-</ul>
-<p>链路(link)：是一条无源的点到点的物理线路段，中间没有任何其他的交换结点<br>数据链路(data link)：除了物理链路外，还必须有通信协议来控制这些数据的传输。</p>
-<blockquote>
-<p>数据链路层的三个基本问题：封装帧，透明传输，差错检测</p>
-</blockquote>
-<ul>
-<li>封装成帧(framing)就是在一段数据的前后分别添加首部和尾部，然后就构成了一个帧。<strong>首部</strong>和<strong>尾部</strong>的一个重要作用<strong>帧定界</strong>。</li>
-</ul>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/image201611sj1.png" alt="tu1"></p>
-<ul>
-<li>透明传输<br>解决办法是用字节填充法。一个帧中，除首尾外，若中间出现帧开始<code>SOH</code>、帧结束<code>EOT</code>符号，则在前面添加<code>ESC</code>字符;同理，若中间出现<code>ESC</code>或者<code>ESCESC</code>，也在前增加一个<code>ESC</code>字符。</li>
-</ul>
-<p><strong>当接收端的数据链路层收到该帧，则遇到<code>ESC</code>就去掉打头的一个<code>ESC</code>即可。</strong></p>
-<ul>
-<li>差错检测<br>在传输过程中可能会产生比特差错：1 可能会变成 0 而 0 也可能变成 1。</li>
-</ul>
-<p><strong>在数据链路层传送的帧中，广泛使用了循环冗余检验 CRC 的检错技术。</strong></p>
-<p>原理很简单：就是在发送数据后面添加<strong>冗余码(帧检测序列FCS)</strong>。</p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/image201611shju2.png" alt="流程圖"></p>
-<blockquote>
-<p>PPP协议和CSMA/CD协议</p>
-</blockquote>
-<p> <strong>PPP协议特点</strong></p>
-<p>√简单——这是首要的要求<br>√封装成帧<br>√透明性<br>√多种网络层协议<br>√多种类型链路<br>√差错检测<br>√检测连接状态<br>√最大传送单元<br>√网络层地址协商<br>√数据压缩协商<br>×纠错<br>×流量控制<br>×序号<br>×多点线路<br>×半双工或单工链路</p>
-<blockquote>
-<p>使用广播信道的数据链路层</p>
-</blockquote>
-<pre><code>局域网：网络为一个单位所拥有，且地理范围和站点数目均有限，今年来以太网的快速发展令以太网几乎与局域网同义。以太网目前基本使用集线器和双绞线的星型和多级星型。
-</code></pre><p><strong>关于以太网</strong></p>
-<p>因市场发展快，而IEEE未能及时形成一个统一的最佳的局域网标准，后来为了使数据链路层更好地适应多种局域网标准，IEEE把数据链路层拆分为两个子层，LLC（逻辑链路控制）和MAC（媒体介入控制）。后来TCP/IP体系的发展迅速，常使用DIX Ethernet V2局域网协议，该协议基本用不上LLC，故现今使用的以太网（局域网）数据链路层的协议只是MAC。<br>以太网采用无连接工作方式，发送数据使用曼彻斯顿编码。</p>
-<p>适配器（就是网卡）：以前是插网卡上网，现在硬件制造商直接把网卡嵌入主板，故叫适配器更合适。适配器上有处理器和存储器（包括RAM和ROM）。在ROM中存放有该主机的MAC地址。</p>
-<p><strong>以太网中的CSMA/CD协议特点</strong></p>
-<ol>
-<li>多点接入</li>
-<li>载波监听（边发送边监听）</li>
-<li>半双工通信</li>
-</ol>
-<p>检测到冲突后会有一套“惩罚”算法，冲突两方会暂停发送数据并广播发生冲突的消息。</p>
-<p><strong>以太网的MAC层</strong></p>
-<p>硬件地址，物理地址，都是说MAC地址<br>局域网适配器厂商都要去RA注册高24位的组织唯一标识符OUI，然后在IEEE购买这个号（也叫地址块），然后你可以在该地址块后再使用低24位分配地址。</p>
-<p><strong>扩展以太网</strong></p>
-<p>集线器扩展，简单物理扩展，就是<strong>转发比特流</strong>，<strong>不隔离碰撞域</strong>。</p>
-<p>网桥，有过滤和转发功能，连接同一网段，全双工通信</p>
-<p>以太网交换机，实质是一个多接口网桥，最重要特点是<strong>独占传输媒体，隔离碰撞域，方便实现虚拟局域网</strong>。<br>虚拟局域网：对不同的局域网里的主机进行分组，通过该组可以实现虚拟局域网内主机互相发送消息。</p>
-
-            <div class="clearfix"></div>
-            <hr class="nogutter">
-        </div>
-        <nav class="pagination" role="pagination">
-    
-    <a class="pull-left" href="/2016/11/18/网络层（上）/" style="float: left;">
-        ← 网络层（上）
-    </a>
-    
-    
-    <a class="pull-right" href="/2016/11/16/形式化关系查询语言/">
-        形式化关系查询语言 →
-    </a>
-    
-</nav>
-
-        <div class="duoshuo"></div>
+        <div class="herofade beige-dk"></div>
     </div>
 </section>
 
+<!-- Height spacing helper -->
+<div class="heightblock"></div>
+<!-- // End height spacing helper -->
 
+<!-- ============================ END Hero Image =========================== -->
+
+
+
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row boxes">
+                    
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2017/11/14/关于spring-AOP编程的一下术语的理解/">关于spring AOP编程的一下术语的理解</a></h4>
+                            
+                            <p><time datetime="2017-11-14T13:14:32.000Z"><a href="/2017/11/14/关于spring-AOP编程的一下术语的理解/">2017-11-14</a></time></p>
+                        </div>
+                    
+                </div>
+            </div>    
+        </div>
+    </div>
+</section> 
+
+<section id="statement">
+    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row">
+            <p>计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决。</p>
+        </div>
+    </div>
+</section>
       
 <!-- ============================ Footer =========================== -->
 

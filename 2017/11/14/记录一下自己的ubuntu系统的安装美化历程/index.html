@@ -79,7 +79,11 @@
 				    
 				    <li><a href="/categories/java/" class="animsition-link">java<small>(10)</small></a></li>
 				    
+				    <li><a href="/categories/java-框架/" class="animsition-link">java 框架<small>(1)</small></a></li>
+				    
 				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/mysql-linux/" class="animsition-link">mysql linux<small>(1)</small></a></li>
 				    
 				    <li><a href="/categories/python/" class="animsition-link">python<small>(3)</small></a></li>
 				    
@@ -188,7 +192,7 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="安装ubuntu-16-04"><a href="#安装ubuntu-16-04" class="headerlink" title="安装ubuntu-16.04"></a>安装ubuntu-16.04</h1><p>安装ubuntu系统，主要就是把ubuntu的iso文件刻录进去U盘，然后电脑开机通过usb启动就行。主要是一下几个步骤:</p>
+      		<h3 id="安装ubuntu-16-04"><a href="#安装ubuntu-16-04" class="headerlink" title="安装ubuntu-16.04"></a>安装ubuntu-16.04</h3><p>安装ubuntu系统，主要就是把ubuntu的iso文件刻录进去U盘，然后电脑开机通过usb启动就行。主要是一下几个步骤:</p>
 <ul>
 <li>准备个u盘，在win下使用ultra-iso软件进行刻录。</li>
 <li>插入U盘。</li>
@@ -197,13 +201,13 @@
 <li>开机装系统。</li>
 </ul>
 <p>这个最简单的单系统安装，会覆盖了之前的系统；双系统的话，在安装之前，要进行分区，以及格式化磁盘的准备工作，双系统安装已经简化了很多，在系统安装过程中，会自动得设置开机启动项。唯一要注意的就是装对地方。</p>
-<h1 id="配置网络环境"><a href="#配置网络环境" class="headerlink" title="配置网络环境"></a>配置网络环境</h1><p>当进入Ubuntu之后，如果你是用有线网卡的话，没问题，有网络，直接可以用。但是如果你是用WIFI的话，那就应该重新装无线网卡驱动。像我就是没有网线，也连接不了wifi，这个时候就直接掏出你的手机，数据线链接好电脑，直接从usb共享数据，便可以上网了。</p>
+<h3 id="配置网络环境"><a href="#配置网络环境" class="headerlink" title="配置网络环境"></a>配置网络环境</h3><p>当进入Ubuntu之后，如果你是用有线网卡的话，没问题，有网络，直接可以用。但是如果你是用WIFI的话，那就应该重新装无线网卡驱动。像我就是没有网线，也连接不了wifi，这个时候就直接掏出你的手机，数据线链接好电脑，直接从usb共享数据，便可以上网了。</p>
 <p>紧接着：</p>
 <ul>
 <li>更新软件源，安装配置无线网卡驱动。</li>
 </ul>
-<h1 id="安装sogou中文输入法"><a href="#安装sogou中文输入法" class="headerlink" title="安装sogou中文输入法"></a>安装sogou中文输入法</h1><p>搜狗中文输入法是linux下我个人觉得最好用的，必须装上，不然我还不想用linux系统。安装过程是以来fcitx的，所以也要安装fcitx。具体过程需要自己百度。</p>
-<h1 id="安装桌面环境"><a href="#安装桌面环境" class="headerlink" title="安装桌面环境"></a>安装桌面环境</h1><p>ubuntu下面，可以安装很多不同风格的桌面环境，根据个人喜好来直接下载安装，可以直接配置成mac风格的。</p>
+<h3 id="安装sogou中文输入法"><a href="#安装sogou中文输入法" class="headerlink" title="安装sogou中文输入法"></a>安装sogou中文输入法</h3><p>搜狗中文输入法是linux下我个人觉得最好用的，必须装上，不然我还不想用linux系统。安装过程是以来fcitx的，所以也要安装fcitx。具体过程需要自己百度。</p>
+<h3 id="安装桌面环境"><a href="#安装桌面环境" class="headerlink" title="安装桌面环境"></a>安装桌面环境</h3><p>ubuntu下面，可以安装很多不同风格的桌面环境，根据个人喜好来直接下载安装，可以直接配置成mac风格的。</p>
 <p>需要注意的:</p>
 <ul>
 <li>很多桌面风格，未在ubuntu软件源中，需要自己去<a href="https://launchpad.net/ubuntu/+ppas" target="_blank" rel="external">ubuntu的PPA中心</a>去找ppa源，添加进去。</li>
@@ -211,19 +215,23 @@
 <li>安装Docky之类的侧边栏管理软件（实现模仿mac风格），我不是很喜欢，所以后来卸载了。</li>
 <li>下载桌面主题风格，然后通过Unity Tweak Tool来设置。我用的是Flatabulous主题，图标是Ultra-flat的扁平化风格。直接在ppa搜索名称可以找到。</li>
 </ul>
-<h1 id="配置VIM"><a href="#配置VIM" class="headerlink" title="配置VIM"></a>配置VIM</h1><p>配置VIM之前，首先需要在ubuntu上重新安装一下vim，因为ubuntu上的vim并不是完整版本，对于大键盘，插入模式方向键是不能用的，有点难受。</p>
+<h3 id="配置VIM"><a href="#配置VIM" class="headerlink" title="配置VIM"></a>配置VIM</h3><p>配置VIM之前，首先需要在ubuntu上重新安装一下vim，因为ubuntu上的vim并不是完整版本，对于大键盘，插入模式方向键是不能用的，有点难受。</p>
 <p>配置主要操作：</p>
 <ul>
 <li>首先是下载安装oh-my-zsh，这个终端完美。</li>
 <li>然后在github上找一下vim的配置文件，直接覆盖了vimrc即可。<a href="https://github.com/ma6174/vim" target="_blank" rel="external">我vimrc</a></li>
 </ul>
-<h1 id="安装ubuntu上的软件"><a href="#安装ubuntu上的软件" class="headerlink" title="安装ubuntu上的软件"></a>安装ubuntu上的软件</h1><p>这里有太多软件可以装了，虽然软件的种类不及windows，但是你在linux里有很大的自由，你可以自由选择软件进行安装。</p>
+<h3 id="安装ubuntu上的软件"><a href="#安装ubuntu上的软件" class="headerlink" title="安装ubuntu上的软件"></a>安装ubuntu上的软件</h3><p>这里有太多软件可以装了，虽然软件的种类不及windows，但是你在linux里有很大的自由，你可以自由选择软件进行安装。</p>
 <pre><code>最后说一句:既然选择了拥抱linux，就选择了无尽的折腾。
 </code></pre>
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2017/11/14/关于spring-AOP编程的一下术语的理解/" style="float: left;">
+        ← 关于spring AOP编程的一下术语的理解
+    </a>
     
     
     <a class="pull-right" href="/2017/11/14/ubuntu16-04中设置python3为默认的，以及一些python3的库安装/">
