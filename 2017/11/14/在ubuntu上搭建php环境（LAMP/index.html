@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>形式化关系查询语言 | what I Write</title>
+  <title>在ubuntu上搭建php环境（LAMP) | what I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -179,47 +179,33 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-11-15T16:08:55.000Z" itemprop="datePublished">
-          2016-11-16
+      <time datetime="2017-11-14T08:13:04.000Z" itemprop="datePublished">
+          2017-11-14
       </time>
     
 </span>
-                <h1>形式化关系查询语言</h1>
+                <h1>在ubuntu上搭建php环境（LAMP)</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>在关系数据库中，数据库模式是指定义数据库的结构，规定的域约束，参照完整性等。实例对应模式在某一时间的快照。关系模式和关系实例也如此。在这里，一个关系对应数据库的一张表，一个元组对应表内一行数据，属性对应字段。</p>
-<p>形式化关系查询语言是SQL所基于的形式化模型，同时它也是其他关系查询语言的基础。</p>
-<p>关系代数式一种<strong>过程化查询语言</strong>。它包含一个运算的集合，这些运算以一个或者两个关系作为输入，产生一个新的关系作为输出。关系代数的基本运算有：选择，投影，并（或），集合差，笛卡尔积和更名。除基本运算外还有集合交，自然连接和赋值。</p>
-<p>学习该语言应该以过程化思想理解关系的运算。</p>
-<p>集合差：如 r - s 的结果即一个包含所有在r中而不在s中的元组的关系。并运算和集合差都必须是同元的，属性数目相同，每个属性的域都相同。</p>
-<p>笛卡尔积：通俗点说就是指包含两个集合中任意取出两个元素构成的组合的集合。假设R中有元组M个，S中有元组N个，则R和S的笛卡尔积中包含的元组数量就是M*N。</p>
-<p>集合交（与）：可以转化为集合差 r ∩ s = r - ( r - s )</p>
-<p><code>关系R与关系S的连接运算是从两个关系的广义笛卡尔积中选取属性间满足一定条件的元组形成一个新的连接。两个表要做连接，就必须有个连接字段.</code></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/image201611shujukjgh1.png" alt="tu1"></p>
-<p>这里只举一个关于θ连接的例子：</p>
-<p><strong>关系Student</strong></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/sss.PNG" alt="tu2"></p>
-<p><strong>关系College</strong></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/image201611shujuku3.png" alt="tu3"></p>
-<p>考虑这样的θ操作Student⋈sGPA&gt;cGPACollege<br>此时θ为sGPA&gt;cGPA<br><strong>那么得到的新关系为：</strong></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/image201611shujuku4.png" alt="tu4"></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/image201611shujuku5.png" alt="tu5"></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/lianjie.png" alt=""></p>
-<p><a href="http://blog.csdn.net/wangjianyu0115/article/details/45538633" target="_blank" rel="external">参考文章1</a>   <a href="http://www.cnblogs.com/Ewin/archive/2009/10/05/1578322.html" target="_blank" rel="external">参考文章2</a>   <a href="http://zhidao.baidu.com/link?url=iI-DfYhO-taWmDY59MMrsYfd6l-YHaJ2YtJrVO3FY84wNL_CmLo6477iJT2eqvAUWk73qczIGxFJry7u9BrKoq" target="_blank" rel="external">参考文章3</a>   <a href="http://www.cnblogs.com/gaiyang/archive/2011/04/12/2013168.html" target="_blank" rel="external">参考文章4</a></p>
+      		<p><code>在linux上搭建一个php环境</code></p>
+<p>常用的php环境就是linux+apache+mysql+php,那么我们就应该从安装软件开始，一般是先装apache,再装mysql,最后是php,因为最后安装PHP会省去很多麻烦，直接就跑起来了。</p>
+<p>1 安装apache <code>sudo apt-get install apache2</code></p>
+<p>2 安装mysql <code>sudo apt-get install mysql-server</code> <code>apt-get isntall mysql-client</code> <code>sudo apt-get install libmysqlclient-dev</code></p>
+<p>3 安装php <code>sudo apt install  php7.0</code></p>
+<p>4 安装php和apache，mysql之间的依赖包 <code>sudo apt-get install libapache2-mod-php7.0</code> <code>sudo apt-get install php7.0-mysql</code> <code>sudo apt-get install php7.0-gd</code></p>
+<p>5 安装phpmyadmin来管理数据库。 <code>sudo apt-get install phpmyadmin</code>  在安装过程中，会输入你的数据库的密码，直接输入就行。</p>
+<pre><code>安装完成后，打开127.0.0.1可以查看是否apache网页服务开启，没有的话可以看看是否未安装成功，或者重新启动apache服务。然后把/usr/share/phpmyadmin拷贝至/var/www目录下，然后可以直接通过127.0.0.1/phpmyadmin来访问phpmyadmin。
+</code></pre><p>至此安装完成</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/11/16/数据链路层/" style="float: left;">
-        ← 数据链路层
-    </a>
     
-    
-    <a class="pull-right" href="/2016/11/16/初识网络/">
-        初识网络 →
+    <a class="pull-right" href="/2017/11/14/关于tomcat，nginx，apache的区别和理解/">
+        关于tomcat，nginx，apache的区别和理解 →
     </a>
     
 </nav>
