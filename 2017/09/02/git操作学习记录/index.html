@@ -77,6 +77,8 @@
 				  	
 				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
 				    
+				    <li><a href="/categories/git/" class="animsition-link">git<small>(1)</small></a></li>
+				    
 				    <li><a href="/categories/java/" class="animsition-link">java<small>(10)</small></a></li>
 				    
 				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(6)</small></a></li>
@@ -91,7 +93,7 @@
 				    
 				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
 				    
-				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(13)</small></a></li>
+				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(12)</small></a></li>
 				    
 				    <li><a href="/categories/网络/" class="animsition-link">网络<small>(6)</small></a></li>
 				    
@@ -203,13 +205,15 @@ git diff 查看文件差别
 </code></pre><hr>
 <pre><code>git log 查看详细日志
 
+git log --pretty=oneline 查看日志，美化
+
 git reflog 查看日志
 </code></pre><hr>
 <pre><code>git reset --hard commit_id  强制回退版本
 
 git checkout -- test.txt  检出本地仓库的test.txt文件，恢复开始的状态。
 
-git reset HEAD file  跟git checkout -- test.txt效果一样，撤销add操作。
+git reset HEAD file  跟git checkout -- test.txt效果一样，撤销add操作,取消提交至暂存区。
 </code></pre><hr>
 <pre><code>git checkout -b dev  创建新的dev分支，并切换至dev.
 
@@ -242,8 +246,8 @@ git tag v0.9 6224937 在6224937commit下打标签
 git show v0.9 查看v0.9标签
 
 git tag -d v0.1 删除标签
-
-git push origin --tags push所有标签
+</code></pre><hr>
+<pre><code>git push origin --tags push所有标签
 
 git push origin v0.1 push标签v0.1
 </code></pre>
