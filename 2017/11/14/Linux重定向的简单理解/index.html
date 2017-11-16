@@ -197,12 +197,18 @@
 <ul>
 <li>nohup命令，不挂断地运行命令，<code>nohup --help</code>可以查看怎么使用。</li>
 <li>最末的<code>&amp;</code>符号，代表该命令是后台进程，在后台运行，不占用shell。</li>
-<li><code>2&gt;&amp;1</code>,首先需要理解linux中的重定向。<ul>
+<li><p><code>2&gt;&amp;1</code>,首先需要理解linux中的重定向。</p>
+<ul>
 <li>2代表错误输出信息，1代表屏幕输出，0表达键盘输入。</li>
-<li>这里是把错误信息输出到屏幕上。我们注意到<code>&amp;</code>符号，这里只是为了区分。如果我们敲<code>2&gt;1</code>，会把错误信息输出到文件名为1的文件中，鉴此，使用<code>&amp;</code>来区分。</li>
+<li><p>这里是把错误信息输出到屏幕上。我们注意到<code>&amp;</code>符号，这里只是为了区分。如果我们敲<code>2&gt;1</code>，会把错误信息输出到文件名为1的文件中，鉴此，使用<code>&amp;</code>来区分。</p>
+<p>在这里有两个命令写法，<code>command &gt; file 2 &gt; file</code>和<code>command &gt; file 2&gt;&amp;1</code>，第一个命令会打开FD1和FD2两个通道抢占file，抢占式写；而第二个则只用打开FD1管道去写file。</p>
+</li>
 </ul>
 </li>
 </ul>
+<blockquote>
+<p>这里要注意的:FD0代表标准输入，FD1代表标准输出，FD2代表错误输出。</p>
+</blockquote>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
