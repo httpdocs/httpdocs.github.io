@@ -8,12 +8,12 @@
 <!--<![endif]-->
 
 <head>
-  <title>通过ajax方式上传文件 | what I Write</title>
+  <title>通过ajax方式上传文件 | What I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content="what I Write">
+    <meta name="generator" content="What I Write">
     <meta name="author" content="John Chang">
     <meta name="description" content="愿有岁月可回首 且以深情共白头" />
     <meta name="keywords" content="" />
@@ -21,7 +21,7 @@
     <!-- Favicon, (keep icon in root folder) -->
     <link rel="Shortcut Icon" href="http://oh0ygta31.bkt.clouddn.com/favicon.ico" type="image/ico">
 
-    <link rel="alternate" href="/atom.xml" title="what I Write" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="What I Write" type="application/atom+xml">
     <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
 	
     <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
@@ -144,7 +144,7 @@
                     <!-- Info-bar -->
                     <nav>
                         <ul class="nav">
-                            <li><a href="/" class="animsition-link">what I Write</a></li>
+                            <li><a href="/" class="animsition-link">What I Write</a></li>
                             <li class="nolink"><span>Always </span>Creative.</li>
                             
                             <li><a href="https://github.com/httpdocs" title="Github" target="_blank"><i class="icon-github"></i></a></li>
@@ -195,6 +195,7 @@
       		<p>传统的表单上传，最典型的就是在<code>&lt;form&gt;</code>标签中，通过像下面这样指定属性实现文件上传：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>= <span class="string">"uploadForm"</span> <span class="attr">action</span>= <span class="string">"http://localhost:8080/cfJAX_RS/rest/file/upload"</span> <span class="attr">method</span>= <span class="string">"post"</span> <span class="attr">enctype</span> =<span class="string">"multipart/form-data"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>但是通过传统方式提交后台，会自动刷新页面，已弃用。下面的方式利用ajax提交文件，使用到FormData对象：</p>
+<p><strong>在使用Formdata上传数据时，发现在form标签中，没有enctype属性也是可以的。不过最好还是加上。</strong></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData($(<span class="string">"#uploadForm"</span> )[<span class="number">0</span>]);</div><div class="line"><span class="comment">//提交表单上传信息</span></div><div class="line">$.ajax(&#123;</div><div class="line">    url: Feng.ctxPath + <span class="string">"/geneReport/update"</span>,</div><div class="line">    type: <span class="string">'POST'</span>,</div><div class="line">    data: formData,</div><div class="line">    <span class="keyword">async</span>: <span class="literal">false</span>,</div><div class="line">    cache: <span class="literal">false</span>,</div><div class="line">    contentType: <span class="literal">false</span>,</div><div class="line">    processData: <span class="literal">false</span>,</div><div class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">returndata</span>) </span>&#123;</div><div class="line">        alert(returndata);</div><div class="line">    &#125;,</div><div class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">returndata</span>) </span>&#123;</div><div class="line">        alert(returndata);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <pre><code>总结：使用ajax异步提交请求，这样是最好的。
 </code></pre>
