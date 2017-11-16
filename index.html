@@ -87,7 +87,7 @@
 				    
 				    <li><a href="/categories/python/" class="animsition-link">python<small>(3)</small></a></li>
 				    
-				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(12)</small></a></li>
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(13)</small></a></li>
 				    
 				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
 				    
@@ -208,6 +208,38 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/11/16/通过ajax方式上传文件/">通过ajax方式上传文件</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-11-16T02:36:28.000Z" itemprop="datePublished">
+          2017-11-16
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        传统的表单上传，最典型的就是在&lt;form&gt;标签中，通过像下面这样指定属性实现文件上传：
+&lt;form id= "uploadForm" action= "http://localhost:8080/cfJAX_RS/rest/file/upload" method= "post" enctype ="multipart/form-data"&gt;
+但是通过传统方式提交后台，会自动刷新页面，已弃用。下面的方式利用ajax
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/11/16/通过ajax方式上传文件/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -2935,48 +2967,6 @@ ICMP报文是在IP数据报的一部分。因为IP数据报首部的检验和并
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2016/11/16/数据链路层/">数据链路层</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-11-15T16:08:55.000Z" itemprop="datePublished">
-          2016-11-16
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        数据链路层的点对点信道和广播信道，PPP协议和CSMA/CD协议的特点
-
-数据链路层的点对点信道和广播信道数据链路层使用的信道主要有以下两种类型：
-
-
-点对点信道。这种信道使用一对一的点对点通信方式。
-
-广播信道。这种信道使用一对多的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的共享信道协议来协调这些主机的数据发送。 
-
-数据链路层传送的是帧
-
-
-链路(link)：是一条无源的点到点的物理线路段，中间没有任
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/11/16/数据链路层/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
                     <h3><a href="/2016/11/16/形式化关系查询语言/">形式化关系查询语言</a></h3>
                     <span>
                         <span class="post-meta">
@@ -3009,10 +2999,10 @@ ICMP报文是在IP数据报的一部分。因为IP数据报首部的检验和并
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2016/11/16/每天一个linux/">每天一个linux命令</a></h3>
+                    <h3><a href="/2016/11/16/数据链路层/">数据链路层</a></h3>
                     <span>
                         <span class="post-meta">
-      <time datetime="2016-11-15T16:00:26.000Z" itemprop="datePublished">
+      <time datetime="2016-11-15T16:08:55.000Z" itemprop="datePublished">
           2016-11-16
       </time>
     
@@ -3022,27 +3012,24 @@ ICMP报文是在IP数据报的一部分。因为IP数据报首部的检验和并
                 <div class="col-md-8">
                     <p>
                       
-                        这个文件是用来记录我学习linux的历程的，持续更新 0.0ing
-2016.10
-整个linux系统，都是对大小写敏感的
-GNU/Linux的文件类型（一个文件由目录项、inode和数据块组成）
+                        数据链路层的点对点信道和广播信道，PPP协议和CSMA/CD协议的特点
 
-普通文件
-
-目录文件
-
-特殊文件/设备文件
-
-链接文件和符号连接文件
+数据链路层的点对点信道和广播信道数据链路层使用的信道主要有以下两种类型：
 
 
-Shell是一种具备特殊功能的程序，它是介于使用者和 UNIX/linux 操作系统之核心程序（kernel）间的一个接口。
-linux命令=内部命令(help)+外
+点对点信道。这种信道使用一对一的点对点通信方式。
+
+广播信道。这种信道使用一对多的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的共享信道协议来协调这些主机的数据发送。 
+
+数据链路层传送的是帧
+
+
+链路(link)：是一条无源的点到点的物理线路段，中间没有任
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2016/11/16/每天一个linux/">Read More...</a>
+                        <a href="/2016/11/16/数据链路层/">Read More...</a>
                     </p>
                     
                 </div>
@@ -3105,11 +3092,11 @@ linux命令=内部命令(help)+外
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2016/11/15/linux命令简写和全称/">linux命令简写和全称</a></h3>
+                    <h3><a href="/2016/11/16/每天一个linux/">每天一个linux命令</a></h3>
                     <span>
                         <span class="post-meta">
-      <time datetime="2016-11-15T02:39:26.000Z" itemprop="datePublished">
-          2016-11-15
+      <time datetime="2016-11-15T16:00:26.000Z" itemprop="datePublished">
+          2016-11-16
       </time>
     
 </span>
@@ -3118,29 +3105,27 @@ linux命令=内部命令(help)+外
                 <div class="col-md-8">
                     <p>
                       
-                        
-su：Swith user  切换用户，切换到root用户
+                        这个文件是用来记录我学习linux的历程的，持续更新 0.0ing
+2016.10
+整个linux系统，都是对大小写敏感的
+GNU/Linux的文件类型（一个文件由目录项、inode和数据块组成）
 
-cat: Concatenate  串联
+普通文件
 
-uname: Unix name  系统名称
+目录文件
 
-df: Disk free  空余硬盘
+特殊文件/设备文件
 
-du: Disk usage 硬盘使用率
+链接文件和符号连接文件
 
-chown: Change owner 改变所有者
 
-chgrp: Change group 改变用户组
-
-ps：Process Status  进程状态
-
-tar：Tape archive 解压文
+Shell是一种具备特殊功能的程序，它是介于使用者和 UNIX/linux 操作系统之核心程序（kernel）间的一个接口。
+linux命令=内部命令(help)+外
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2016/11/15/linux命令简写和全称/">Read More...</a>
+                        <a href="/2016/11/16/每天一个linux/">Read More...</a>
                     </p>
                     
                 </div>
@@ -3193,11 +3178,11 @@ tar：Tape archive 解压文
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2016/11/14/什么是网关/">什么是网关</a></h3>
+                    <h3><a href="/2016/11/15/linux命令简写和全称/">linux命令简写和全称</a></h3>
                     <span>
                         <span class="post-meta">
-      <time datetime="2016-11-14T15:08:55.000Z" itemprop="datePublished">
-          2016-11-14
+      <time datetime="2016-11-15T02:39:26.000Z" itemprop="datePublished">
+          2016-11-15
       </time>
     
 </span>
@@ -3206,13 +3191,29 @@ tar：Tape archive 解压文
                 <div class="col-md-8">
                     <p>
                       
-                        网关是一种充当转换重任的计算机系统或设备。在使用不同的通信协议、数据格式或语言,甚至体系结构完全不同的两种系统之间，网关是一个翻译器。与网桥只是简单地传达信息不同，网关对收到的信息要重新打包，以适应目的系统的需求。同时，网关也可以提供过滤和安全功能。大多数网关运行在OSI 7层协议的顶层–应用层。 
-大家都知道，从一个房间走到另一个房间，必然要经过一扇门。同样，从一个网络向另一个网络发送信息，也必须经过一道“关口”，这道关口就是网关。顾
+                        
+su：Swith user  切换用户，切换到root用户
+
+cat: Concatenate  串联
+
+uname: Unix name  系统名称
+
+df: Disk free  空余硬盘
+
+du: Disk usage 硬盘使用率
+
+chown: Change owner 改变所有者
+
+chgrp: Change group 改变用户组
+
+ps：Process Status  进程状态
+
+tar：Tape archive 解压文
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2016/11/14/什么是网关/">Read More...</a>
+                        <a href="/2016/11/15/linux命令简写和全称/">Read More...</a>
                     </p>
                     
                 </div>
@@ -3252,6 +3253,37 @@ mysql.exe是mysql服务器的主应用程序。
                     
                     <p class="pull-right readMore">
                         <a href="/2016/11/14/php函数连接mysql数据库/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/11/14/什么是网关/">什么是网关</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-11-14T15:08:55.000Z" itemprop="datePublished">
+          2016-11-14
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        网关是一种充当转换重任的计算机系统或设备。在使用不同的通信协议、数据格式或语言,甚至体系结构完全不同的两种系统之间，网关是一个翻译器。与网桥只是简单地传达信息不同，网关对收到的信息要重新打包，以适应目的系统的需求。同时，网关也可以提供过滤和安全功能。大多数网关运行在OSI 7层协议的顶层–应用层。 
+大家都知道，从一个房间走到另一个房间，必然要经过一扇门。同样，从一个网络向另一个网络发送信息，也必须经过一道“关口”，这道关口就是网关。顾
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/11/14/什么是网关/">Read More...</a>
                     </p>
                     
                 </div>
