@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>关于跳转路径的问题 | What I Write</title>
+  <title>巨坑，前端ajax上传文件然后下载目标文件遇到的问题 | What I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -183,30 +183,52 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-07-08T15:46:30.000Z" itemprop="datePublished">
-          2017-07-08
+      <time datetime="2017-11-17T02:16:31.000Z" itemprop="datePublished">
+          2017-11-17
       </time>
     
 </span>
-                <h1>关于跳转路径的问题</h1>
+                <h1>巨坑，前端ajax上传文件然后下载目标文件遇到的问题</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p><code>代码中的路径问题</code></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/%E8%B7%B3%E8%BD%AC.png" alt=""></p>
-
+      		<p>这篇博文主要是想记录一下，今天在实现需求，修改bug的时候，遇到的几个关键的问题。</p>
+<ul>
+<li>ajax请求自动刷新页面，重新刷新了js，js内保存的服务器返回的变量丢失。</li>
+<li>SpringMVC的response对象返回要下载的文件流，浏览器不会弹出窗口自动下载（下载机制未被激活）。</li>
+</ul>
+<h3 id="ajax自动刷新页面"><a href="#ajax自动刷新页面" class="headerlink" title="ajax自动刷新页面"></a>ajax自动刷新页面</h3><p><strong>前端关键代码：</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"report_view"</span> <span class="attr">id</span>=<span class="string">"report_view"</span> <span class="attr">value</span>=<span class="string">"报告生成"</span>  <span class="attr">onclick</span>=<span class="string">"GeneReportInfoDlg.generate()"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>主要逻辑就是点击按钮触发点击事件，执行js方法,generate();</p>
+<p><strong>JS代码：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">generate=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $.ajax(&#123;</div><div class="line">        url: Feng.ctxPath+ <span class="string">"/geneReport/reportGenerate"</span>,</div><div class="line">        type: <span class="string">'POST'</span>,</div><div class="line">        <span class="keyword">async</span>: <span class="literal">false</span>,</div><div class="line">        cache: <span class="literal">false</span>,</div><div class="line">        contentType: <span class="literal">false</span>,</div><div class="line">        processData: <span class="literal">false</span>,</div><div class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">downloadUrl</span>)</span>&#123;</div><div class="line">            lay.msg(<span class="string">"报告生成成功！"</span>);<span class="comment">//lay是layer前端弹出层框架的方法</span></div><div class="line">        &#125;,</div><div class="line">        error:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">            lay.msg(<span class="string">"报告生成发生错误！"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>逻辑是没有问题的，但是generate方法执行后，后天返回状态码，ajax的回调方法执行完毕，会刷新前端页面。<code>这就是关键的问题</code></p>
+<p><strong>解决办法</strong></p>
+<p>修改前端代码，将<input type="submit">中的<code>type</code>，改为<code>button</code>。这种type为submit的写法，之前在传统的表单提交中我们经常使用。但是通过传统方式提交表单，就是会刷新页面的。另外还有一点，传统提交方式在<code>&lt;form&gt;</code>标签中也有体现，注意在代码中不要出现像这样的代码：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"test"</span> <span class="attr">action</span>=<span class="string">"http:localhost:8080/dir/file.txt"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<hr>
+<h3 id="激活浏览器的下载机制，让浏览器打开保存文件的那个窗口"><a href="#激活浏览器的下载机制，让浏览器打开保存文件的那个窗口" class="headerlink" title="激活浏览器的下载机制，让浏览器打开保存文件的那个窗口"></a>激活浏览器的下载机制，让浏览器打开保存文件的那个窗口</h3><ul>
+<li>使用jquery创建表单并提交，实现激活</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> form = $(<span class="string">"&lt;form&gt;"</span>);</div><div class="line">form.attr(<span class="string">"style"</span>,<span class="string">"display:none"</span>);</div><div class="line">form.attr(<span class="string">"target"</span>,<span class="string">""</span>);</div><div class="line">form.attr(<span class="string">"method"</span>,<span class="string">"post"</span>);</div><div class="line">form.attr(<span class="string">"action"</span>,rootPath + <span class="string">"T_academic_essay/DownloadZipFile.do"</span>);</div><div class="line"><span class="keyword">var</span> input1 = $(<span class="string">"&lt;input&gt;"</span>);</div><div class="line">input1.attr(<span class="string">"type"</span>,<span class="string">"hidden"</span>);</div><div class="line">input1.attr(<span class="string">"name"</span>,<span class="string">"strZipPath"</span>);</div><div class="line">input1.attr(<span class="string">"value"</span>,strZipPath);</div><div class="line">$(<span class="string">"body"</span>).append(form);</div><div class="line">form.append(input1);</div><div class="line">form.submit();</div><div class="line">form.remove();</div></pre></td></tr></table></figure>
+<ul>
+<li>直接使用a标签激活</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http:localhost:8080/dir/file.txt"</span>&gt;</span>点击下载<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>使用隐藏的iframe或者新窗体，激活下载</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">               <span class="keyword">var</span> elemIF = <span class="built_in">document</span>.createElement(<span class="string">"iframe"</span>);</div><div class="line">               elemIF.src = Feng.ctxPath + <span class="string">"/geneReport/download?downloadUrl="</span>+downloadUrl;</div><div class="line">               elemIF.style.display = <span class="string">"none"</span>;</div><div class="line">               <span class="built_in">document</span>.body.appendChild(elemIF);</div><div class="line">           &#125; <span class="keyword">catch</span> (e) &#123;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<pre><code>注意这两点，文件可以流畅地上传下载。
+</code></pre>
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2017/07/09/几个框架的注意点/" style="float: left;">
-        ← 几个框架的注意点
-    </a>
     
-    
-    <a class="pull-right" href="/2017/07/07/mysql的外键约束问题/">
-        mysql的外键约束问题 →
+    <a class="pull-right" href="/2017/11/16/通过ajax方式上传文件/">
+        通过ajax方式上传文件 →
     </a>
     
 </nav>

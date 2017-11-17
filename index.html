@@ -87,7 +87,7 @@
 				    
 				    <li><a href="/categories/python/" class="animsition-link">python<small>(3)</small></a></li>
 				    
-				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(13)</small></a></li>
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(14)</small></a></li>
 				    
 				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
 				    
@@ -212,6 +212,42 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2017/11/17/巨坑，前端ajax上传文件然后下载目标文件遇到的问题/">巨坑，前端ajax上传文件然后下载目标文件遇到的问题</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-11-17T02:16:31.000Z" itemprop="datePublished">
+          2017-11-17
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        这篇博文主要是想记录一下，今天在实现需求，修改bug的时候，遇到的几个关键的问题。
+
+ajax请求自动刷新页面，重新刷新了js，js内保存的服务器返回的变量丢失。
+SpringMVC的response对象返回要下载的文件流，浏览器不会弹出窗口自动下载（下载机制未被激活）。
+
+ajax自动刷新页面前端关键代码：
+&lt;form&gt;    &lt;input type="submit" name="report_view" id="r
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/11/17/巨坑，前端ajax上传文件然后下载目标文件遇到的问题/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2017/11/16/通过ajax方式上传文件/">通过ajax方式上传文件</a></h3>
                     <span>
                         <span class="post-meta">
@@ -225,9 +261,9 @@
                 <div class="col-md-8">
                     <p>
                       
-                        传统的表单上传，最典型的就是在&lt;form&gt;标签中，通过像下面这样指定属性实现文件上传：
+                        传统的表单上传，我觉得有两个典型的特点，一个就是在&lt;form&gt;标签中，通过像下面这样指定属性实现文件上传：
 &lt;form id= "uploadForm" action= "http://localhost:8080/cfJAX_RS/rest/file/upload" method= "post" enctype ="multipart/form-data"&gt;
-但是通过传统方式提交后台，会自动刷新页面，已弃用。下面的方式利用ajax
+另一个就是&lt;input&gt;标签的type属
                       
                     </p>
                     
@@ -3041,6 +3077,51 @@ ICMP报文是在IP数据报的一部分。因为IP数据报首部的检验和并
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2016/11/16/每天一个linux/">每天一个linux命令</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-11-15T16:00:26.000Z" itemprop="datePublished">
+          2016-11-16
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        这个文件是用来记录我学习linux的历程的，持续更新 0.0ing
+2016.10
+整个linux系统，都是对大小写敏感的
+GNU/Linux的文件类型（一个文件由目录项、inode和数据块组成）
+
+普通文件
+
+目录文件
+
+特殊文件/设备文件
+
+链接文件和符号连接文件
+
+
+Shell是一种具备特殊功能的程序，它是介于使用者和 UNIX/linux 操作系统之核心程序（kernel）间的一个接口。
+linux命令=内部命令(help)+外
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/11/16/每天一个linux/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2016/11/16/初识网络/">初识网络</a></h3>
                     <span>
                         <span class="post-meta">
@@ -3081,51 +3162,6 @@ ICMP报文是在IP数据报的一部分。因为IP数据报首部的检验和并
                     
                     <p class="pull-right readMore">
                         <a href="/2016/11/16/初识网络/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/11/16/每天一个linux/">每天一个linux命令</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-11-15T16:00:26.000Z" itemprop="datePublished">
-          2016-11-16
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        这个文件是用来记录我学习linux的历程的，持续更新 0.0ing
-2016.10
-整个linux系统，都是对大小写敏感的
-GNU/Linux的文件类型（一个文件由目录项、inode和数据块组成）
-
-普通文件
-
-目录文件
-
-特殊文件/设备文件
-
-链接文件和符号连接文件
-
-
-Shell是一种具备特殊功能的程序，它是介于使用者和 UNIX/linux 操作系统之核心程序（kernel）间的一个接口。
-linux命令=内部命令(help)+外
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/11/16/每天一个linux/">Read More...</a>
                     </p>
                     
                 </div>

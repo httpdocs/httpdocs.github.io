@@ -87,7 +87,7 @@
 				    
 				    <li><a href="/categories/python/" class="animsition-link">python<small>(3)</small></a></li>
 				    
-				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(13)</small></a></li>
+				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(14)</small></a></li>
 				    
 				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
 				    
@@ -192,9 +192,12 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>传统的表单上传，最典型的就是在<code>&lt;form&gt;</code>标签中，通过像下面这样指定属性实现文件上传：</p>
+      		<p><strong>传统的表单上传，我觉得有两个典型的特点，一个就是在<code>&lt;form&gt;</code>标签中，通过像下面这样指定属性实现文件上传：</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>= <span class="string">"uploadForm"</span> <span class="attr">action</span>= <span class="string">"http://localhost:8080/cfJAX_RS/rest/file/upload"</span> <span class="attr">method</span>= <span class="string">"post"</span> <span class="attr">enctype</span> =<span class="string">"multipart/form-data"</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>但是通过传统方式提交后台，会自动刷新页面，已弃用。下面的方式利用ajax提交文件，使用到FormData对象：</p>
+<p><strong>另一个就是<code>&lt;input&gt;</code>标签的type属性：</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">onclick</span>=<span class="string">"test()"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<pre><code>这两个特点，我觉得可以用来辨别是否是传统方式，注意：`通过传统方式提交后台，会自动刷新页面，已弃用`。下面的方式利用ajax提交文件，使用到FormData对象：
+</code></pre><hr>
 <p><strong>在使用Formdata上传数据时，发现在form标签中，没有enctype属性也是可以的。不过最好还是加上。</strong></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData($(<span class="string">"#uploadForm"</span> )[<span class="number">0</span>]);</div><div class="line"><span class="comment">//提交表单上传信息</span></div><div class="line">$.ajax(&#123;</div><div class="line">    url: Feng.ctxPath + <span class="string">"/geneReport/update"</span>,</div><div class="line">    type: <span class="string">'POST'</span>,</div><div class="line">    data: formData,</div><div class="line">    <span class="keyword">async</span>: <span class="literal">false</span>,</div><div class="line">    cache: <span class="literal">false</span>,</div><div class="line">    contentType: <span class="literal">false</span>,</div><div class="line">    processData: <span class="literal">false</span>,</div><div class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">returndata</span>) </span>&#123;</div><div class="line">        alert(returndata);</div><div class="line">    &#125;,</div><div class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">returndata</span>) </span>&#123;</div><div class="line">        alert(returndata);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <pre><code>总结：使用ajax异步提交请求，这样是最好的。
@@ -203,6 +206,10 @@
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2017/11/17/巨坑，前端ajax上传文件然后下载目标文件遇到的问题/" style="float: left;">
+        ← 巨坑，前端ajax上传文件然后下载目标文件遇到的问题
+    </a>
     
     
     <a class="pull-right" href="/2017/11/15/使用update-alternatives命令管理多版本软件/">
