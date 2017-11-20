@@ -77,7 +77,7 @@
 				  	
 				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
 				    
-				    <li><a href="/categories/git/" class="animsition-link">git<small>(1)</small></a></li>
+				    <li><a href="/categories/git/" class="animsition-link">git<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/java/" class="animsition-link">java<small>(10)</small></a></li>
 				    
@@ -208,6 +208,43 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/11/20/git删除不必要上传的文件/">git删除不必要上传的文件</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-11-20T14:16:55.000Z" itemprop="datePublished">
+          2017-11-20
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        删除不必要上传的文件
+在使用git同步仓库的时候，往往会有很多不需要上传到远程的文件。这个时候我们需要把他们加到.gitignore文件中来，以此忽略这些文件。
+&lt;!--示例文件，/代表的是根目录。--&gt;/.setting/*/.idea/*/logs/*
+需要注意的地方
+有的时候，我们已经把不需要的文件上传到了远程服务器中，这个时候我们又想要删除掉不需要上传的文件。那么我们可以这样来:
+
+在远程服务器中，删除不要的文件
+g
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/11/20/git删除不必要上传的文件/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -3077,51 +3114,6 @@ ICMP报文是在IP数据报的一部分。因为IP数据报首部的检验和并
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2016/11/16/每天一个linux/">每天一个linux命令</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-11-15T16:00:26.000Z" itemprop="datePublished">
-          2016-11-16
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        这个文件是用来记录我学习linux的历程的，持续更新 0.0ing
-2016.10
-整个linux系统，都是对大小写敏感的
-GNU/Linux的文件类型（一个文件由目录项、inode和数据块组成）
-
-普通文件
-
-目录文件
-
-特殊文件/设备文件
-
-链接文件和符号连接文件
-
-
-Shell是一种具备特殊功能的程序，它是介于使用者和 UNIX/linux 操作系统之核心程序（kernel）间的一个接口。
-linux命令=内部命令(help)+外
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/11/16/每天一个linux/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
                     <h3><a href="/2016/11/16/初识网络/">初识网络</a></h3>
                     <span>
                         <span class="post-meta">
@@ -3173,11 +3165,11 @@ linux命令=内部命令(help)+外
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2016/11/15/物理层/">物理层</a></h3>
+                    <h3><a href="/2016/11/16/每天一个linux/">每天一个linux命令</a></h3>
                     <span>
                         <span class="post-meta">
-      <time datetime="2016-11-15T02:39:26.000Z" itemprop="datePublished">
-          2016-11-15
+      <time datetime="2016-11-15T16:00:26.000Z" itemprop="datePublished">
+          2016-11-16
       </time>
     
 </span>
@@ -3186,23 +3178,27 @@ linux命令=内部命令(help)+外
                 <div class="col-md-8">
                     <p>
                       
-                        物理层的任务
-物理层的主要任务
+                        这个文件是用来记录我学习linux的历程的，持续更新 0.0ing
+2016.10
+整个linux系统，都是对大小写敏感的
+GNU/Linux的文件类型（一个文件由目录项、inode和数据块组成）
 
-提供传送数据通路
-传输数据比特流
+普通文件
 
-数据链路层可以直接通过物理层提供的服务收发数据比特流（帧）。
-物理层的媒体包括架空明线、平衡电缆、光纤、无线信道等、计算机、终端等，调制解调器、各种插头、插座，LAN中的各种粗、细同轴电缆、T型接、插头，接收器，发送器，中继器等都属物理层的媒体和连接器。
+目录文件
 
-数据(data)——运送消息的实体。
-信号(signal)——数据的电气的或电磁的表现。 
-“模拟的”(anal
+特殊文件/设备文件
+
+链接文件和符号连接文件
+
+
+Shell是一种具备特殊功能的程序，它是介于使用者和 UNIX/linux 操作系统之核心程序（kernel）间的一个接口。
+linux命令=内部命令(help)+外
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2016/11/15/物理层/">Read More...</a>
+                        <a href="/2016/11/16/每天一个linux/">Read More...</a>
                     </p>
                     
                 </div>
@@ -3250,6 +3246,47 @@ tar：Tape archive 解压文
                     
                     <p class="pull-right readMore">
                         <a href="/2016/11/15/linux命令简写和全称/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/11/15/物理层/">物理层</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-11-15T02:39:26.000Z" itemprop="datePublished">
+          2016-11-15
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        物理层的任务
+物理层的主要任务
+
+提供传送数据通路
+传输数据比特流
+
+数据链路层可以直接通过物理层提供的服务收发数据比特流（帧）。
+物理层的媒体包括架空明线、平衡电缆、光纤、无线信道等、计算机、终端等，调制解调器、各种插头、插座，LAN中的各种粗、细同轴电缆、T型接、插头，接收器，发送器，中继器等都属物理层的媒体和连接器。
+
+数据(data)——运送消息的实体。
+信号(signal)——数据的电气的或电磁的表现。 
+“模拟的”(anal
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/11/15/物理层/">Read More...</a>
                     </p>
                     
                 </div>

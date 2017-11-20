@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>操作系统简单总结之进程简介 | What I Write</title>
+  <title>git删除不必要上传的文件 | What I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -183,93 +183,34 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-12-01T04:45:50.000Z" itemprop="datePublished">
-          2016-12-01
+      <time datetime="2017-11-20T14:16:55.000Z" itemprop="datePublished">
+          2017-11-20
       </time>
     
 </span>
-                <h1>操作系统简单总结之进程简介</h1>
+                <h1>git删除不必要上传的文件</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p><code>操作系统简单总结——进程简介</code></p>
+      		<p><strong>删除不必要上传的文件</strong></p>
+<p>在使用git同步仓库的时候，往往会有很多不需要上传到远程的文件。这个时候我们需要把他们加到<code>.gitignore</code>文件中来，以此忽略这些文件。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!--示例文件，/代表的是根目录。--&gt;</span></div><div class="line">/.setting/*</div><div class="line">/.idea/*</div><div class="line">/logs/*</div></pre></td></tr></table></figure>
+<p><strong>需要注意的地方</strong></p>
+<p>有的时候，我们已经把不需要的文件上传到了远程服务器中，这个时候我们又想要删除掉不需要上传的文件。那么我们可以这样来:</p>
 <ul>
-<li>什么是进程</li>
-<li>进程状态</li>
-<li>进程描述</li>
-<li>进程控制</li>
+<li>在远程服务器中，删除不要的文件</li>
+<li>git pull，同步到本地来</li>
+<li>这个时候。gitignore文件就会生效了，再git push就不会把不需要的也上传上去了。</li>
 </ul>
-<hr>
-<p><code>什么是进程</code></p>
-<p><strong>进程：程序在一个数据集上的一次执行过程。</strong></p>
-<p><strong>进程和程序的区别：</strong></p>
-<ul>
-<li>程序是静态的，进程是动态的。进程可以创建其他进程。</li>
-<li>程序可对应一个进程，也可对应多个进程（只要进程使用的数据集不同）</li>
-</ul>
-<p>举个例子，在你电脑里是可以运行两个QQ的，装在电脑里的QQ程序可以被多次执行，每次打开一个新的QQ，会根据不同的用户使用不同的用户的数据。</p>
-<p><strong>进程组成：</strong></p>
-<ul>
-<li>程序代码</li>
-<li>数据集，内存堆栈</li>
-<li>进程控制块（PCB），是进程的唯一标识，OS根据PCB中的属性控制进程。</li>
-</ul>
-<p><strong>进程状态</strong></p>
-<ul>
-<li>创建：OS为进程建立PCB，分配内存空间</li>
-<li>终止：回收内存，释放资源，销毁PCB</li>
-</ul>
-<p><strong>进程的五状态模型：</strong></p>
-<ul>
-<li>新建：OS为进程分配需要的内存空间</li>
-<li>就绪：得到除了CPU以外的其他设备资源</li>
-<li>运行：得到CPU（被调度，有专门的的调度算法）</li>
-<li>阻塞：I/O或者其他事件发生</li>
-<li>退出：OS释放资源，回收内存，销毁PCB。</li>
-</ul>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/jinc.png" alt=""></p>
-<hr>
-<p><code>进程描述</code></p>
-<p>首先要了解一下操作系统的控制结构，在操作系统里会构造并维护所管理的每个实体的信息表。这里的实体就是内存，各种I/O设备，文件，还有个进程。在<a href="https://httpdocs.github.io/2016/12/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%E4%B9%8B%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/" target="_blank" rel="external">操作系统简介</a>这里讲了关于OS管理的对象。</p>
-<p><strong>信息表分4类：</strong></p>
-<ul>
-<li>内存表：跟踪内存和虚拟内存</li>
-<li>I/O表：管理I/O设备和通道</li>
-<li>文件表：文件属性</li>
-<li>进程表：PCB（进程属性描述）集合</li>
-</ul>
-<blockquote>
-<p>说到这些信息表，那么我觉得大家应该能想到，在后面的关于OS进行管理，实际上就是根据这些表来进行管理。具体OS是怎么实现这些数据结构的，有时间一定要阅读一些LINUX内核源码，看看是怎么存储管理这些表的。</p>
-</blockquote>
-<p><strong>进程的控制结构PCB</strong></p>
-<p>OS进程表中包含所有进程的PCB，当一个新进程创建，OS会分配PCB给该进程。</p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/pcb0.png" alt=""></p>
-<p>每一个状态的进程都会对应一条进程队列。相同状态的PCB组成一个队列。阻塞队列会因为阻塞原因的不同而分不同的阻塞队列。</p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/pcb4.png" alt=""></p>
-<hr>
-<p><code>进程控制</code></p>
-<p>进程控制这里，主要是涉及CPU的执行模式。特权指令时只能由操作系统内核使用的指令。</p>
-<ul>
-<li>用户态：只能执行非特权指令</li>
-<li>系统态（内核态）：都能执行。执行系统调用（OS提供服务）或者发生中断启动系统态。</li>
-</ul>
-<blockquote>
-<p>当CPU要执行特权指令时，会引发“trap陷入”，即模式切换（就是把PSW中的控制位调整），然后才能去执行OS内核的一段特权代码。</p>
-</blockquote>
-<p>关于是怎么执行特权指令的，可以点击这里看看<a href="https://httpdocs.github.io/2016/12/01/%E4%B8%80%E4%B8%AA%E8%A7%A3%E5%86%B3%E5%BE%88%E5%A4%9A%E9%97%AE%E9%A2%98%E7%9A%84%E5%85%B3%E9%94%AE%E5%AF%84%E5%AD%98%E5%99%A8/" target="_blank" rel="external">模式切换</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/12/01/操作系统简单总结之线程简介/" style="float: left;">
-        ← 操作系统简单总结之线程简介
-    </a>
     
-    
-    <a class="pull-right" href="/2016/12/01/一个解决很多问题的关键寄存器/">
-        一个解决很多问题的关键寄存器 →
+    <a class="pull-right" href="/2017/11/17/巨坑，前端ajax上传文件然后下载目标文件遇到的问题/">
+        巨坑，前端ajax上传文件然后下载目标文件遇到的问题 →
     </a>
     
 </nav>
