@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>ubuntu16.04中设置python3为默认的，以及一些python3的库安装 | What I Write</title>
+  <title>python基础语法和java较不同的地方 | What I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -183,53 +183,39 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-11-14T09:07:21.000Z" itemprop="datePublished">
-          2017-11-14
+      <time datetime="2017-11-21T01:23:02.000Z" itemprop="datePublished">
+          2017-11-21
       </time>
     
 </span>
-                <h1>ubuntu16.04中设置python3为默认的，以及一些python3的库安装</h1>
+                <h1>python基础语法和java较不同的地方</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p><strong>利用alternatives机制更改python3为默认</strong></p>
-<p>shell中执行</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <span class="number">100</span></div><div class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 <span class="number">150</span></div></pre></td></tr></table></figure>
+      		<p>主要记一下python中，个人觉得和java差异较大，对从java转学python的人来说需要记忆的地方。</p>
+<p><strong>python中的缩进</strong></p>
+<p>python和其他语言最大的区别，就是使用缩进来写模块。而不是使用{}来区分类，函数或者其他逻辑判断等。这是严格的语法格式。</p>
 <hr>
-<p><strong>安装python3的包</strong></p>
-<ul>
-<li><p>Numpy  <code>sudo apt-get install python-numpy</code></p>
-</li>
-<li><p>Scipy  <code>sudo apt-get install python-scipy</code></p>
-</li>
-<li><p>Matplotlib  <code>sudo apt-get install python-matplotlib</code></p>
-</li>
-<li><p>Pandas <code>sudo apt-get install python-pandas</code></p>
-</li>
-<li><p>statsModel  <code>sudo apt-get install python-statsmodels</code></p>
-</li>
-<li><p>scikit-learn <code>sudo apt-get install python-sklearn</code></p>
-</li>
-<li><p>xgboost <code>sudo -H pip install --pre xgboost</code></p>
-</li>
-<li><p>seaborn <code>sudo pip install seaborn</code></p>
-</li>
-</ul>
+<p><strong>if中的逻辑判断</strong></p>
+<p>在python的逻辑判断中，if代码块中，通常不像java使用<code>&amp;&amp;</code>,<code>||</code>,<code>!</code>来进行逻辑运算，而是直接使用关键字<code>and</code>,<code>or</code>,<code>not</code>来书写。</p>
 <hr>
-<pre><code>如果要切换到python2，执行`sudo update-alternatives --config python`，然后在py2下安装的包，都是py2对应的安装包。
-</code></pre>
+<p><strong>多行代码书写</strong></p>
+<p>在python中，<code>;</code>不是语法必须的，所以往往分行写代码比较需要常用到。python中使用<code>\</code>符号来接连。<code>{}</code>，<code>[]</code>或<code>()</code>不需要分行连接。</p>
+<hr>
+<p><strong>python引号</strong></p>
+<p>python也是使用引号也定义字符串，单引号，双引号，三引号都是可以的。其中三引号是用来定义段落的。</p>
+<hr>
+<p><strong>注释</strong></p>
+<p>单行是<code>#</code>。<br>多行是三引号（上面说到，他也是可以定义段落字符串的）。</p>
+
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2017/11/14/记录一下自己的ubuntu系统的安装美化历程/" style="float: left;">
-        ← 记录一下自己的ubuntu系统的安装美化历程
-    </a>
     
-    
-    <a class="pull-right" href="/2017/11/14/在ubuntu上搭建php环境（LAMP/">
-        在ubuntu上搭建php环境（LAMP) →
+    <a class="pull-right" href="/2017/11/21/python里面的单下划线和双下划线区别/">
+        python里面的单下划线和双下划线区别 →
     </a>
     
 </nav>
