@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>关于代码 | What I Write</title>
+  <title>python的字典数据类型 | What I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -183,44 +183,29 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-11-13T16:00:26.000Z" itemprop="datePublished">
-          2016-11-14
+      <time datetime="2017-11-23T01:45:29.000Z" itemprop="datePublished">
+          2017-11-23
       </time>
     
 </span>
-                <h1>关于代码</h1>
+                <h1>python的字典数据类型</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<blockquote>
-<p>概念与命名</p>
-</blockquote>
-<p>简言之，使用缩略词对多次出现的概念添加有意义的语境进行命名。</p>
-<blockquote>
-<p>函数</p>
-</blockquote>
-<p>函数设计应尽量让其功能单一，输入参数少为好，尽量属于同一抽象层次。</p>
-<p>函数名只是一个指针，函数体的代码只是一段任何人都可以调用的代码，函数体里面的代码可以是动态的（根据你传进参数不一样而动态执行）也可以是静态的（一直都做同样的事）。构造函数也是函数，但是只有与new操作符连用，才会去为函数内的变量申请空间。比如在JAVA语言里，函数一般是放在类里，然后在某一段内存里存放着这段代码，当然，方法有访问权限。</p>
-<blockquote>
-<p>类</p>
-</blockquote>
-<p><strong>封装</strong><br>面向对象的设计原则：每个类必须保证在任何情况下自身不崩溃，即使其他类恶意使用。最常用的是类的对外接口必须对外部设置的数据指令进行验证（即参数验证）。</p>
-<p><strong>抽象代码</strong><br>解决复杂问题主要有两种思路，一个是把其分为一个个小问题，逐一求解，另外一个是把其简化，先解决简化后的主要问题，再逐步添加被简化的细节，一一解决。</p>
-<p>面向对象的分析、设计、编码方法属于简化问题的抽象思想，抽象的都是不具体的，是一个更大的类型。</p>
-<p>抽象是从众多的事物中提取共同的本质的特征，舍弃其非本质的特征。抽象具有层次性，忽略的细节越多，抽象的层次越高。</p>
-<p>继承是抽象思想的应用，继承要想体现价值，应要与多态联用。继承在抽象实现上，从数据抽象的角度来说，水果类为苹果梨子菠萝等水果的关系进行了关系建模，让他们之间有了一个共同特征的“源”；从过程抽象的角度看，继承体现了分层治之的思想。而抽象是“依赖倒置的”，也就是说，高抽象层次的问题解决往往要依赖于低抽象层次的问题的解——多态便解决该问题。</p>
-<p>多态，也称为动态绑定，后期绑定，运行时绑定。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> class <span class="title">Fruit</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">getColor</span><span class="params">()</span></span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Apple</span><span class="params">()</span> extends Fruit</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getColor</span><span class="params">()</span></span>&#123;</div><div class="line">        system.out.println(<span class="string">"red"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Pear</span><span class="params">()</span> extends Fruit</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getColor</span><span class="params">()</span></span>&#123;</div><div class="line">        system.out.println(<span class="string">"pear yellow"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Pipeapple</span><span class="params">()</span> extends Fruit</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getColor</span><span class="params">()</span></span>&#123;</div><div class="line">        system.out.println(<span class="string">"pipeapple yellow"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>看上面的例子，如果运行fruit.getColor()；那么运行具体的哪个方法，是要<strong>靠运行时变量fruit所代表的类型实例来确定</strong>。</p>
+      		<p>关于python的字典数据类型，其实就是JAVA中的map类型，但是有个特点：</p>
+<ul>
+<li>键必须不可变，除了可以用数，字符串或元祖充当外，还可以用不可变集合frozenset()生成的来充当。</li>
+</ul>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/11/14/我的win10必装软件/" style="float: left;">
-        ← 我的win10必装软件
-    </a>
     
+    <a class="pull-right" href="/2017/11/22/python循环语句/">
+        python循环语句 →
+    </a>
     
 </nav>
 
