@@ -85,11 +85,13 @@
 				    
 				    <li><a href="/categories/mysql-linux/" class="animsition-link">mysql linux<small>(1)</small></a></li>
 				    
-				    <li><a href="/categories/python/" class="animsition-link">python<small>(9)</small></a></li>
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(10)</small></a></li>
 				    
 				    <li><a href="/categories/前端/" class="animsition-link">前端<small>(14)</small></a></li>
 				    
-				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(9)</small></a></li>
+				    <li><a href="/categories/大数据/" class="animsition-link">大数据<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/数据库/" class="animsition-link">数据库<small>(10)</small></a></li>
 				    
 				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
 				    
@@ -208,6 +210,139 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/11/27/python模块/">python模块</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-11-27T09:27:23.000Z" itemprop="datePublished">
+          2017-11-27
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        python的模块也是python对象，具有随机的名字属性，用以绑定或引用。
+模块名通常就是文件名。例如aname模块，一般会有aname.py文件。
+
+dir()函数，类似与浏览器实现的js,console.dir()方法，可以列出模块对象的所有属性及方法。
+
+
+python的全局变量与局部变量具有和php类似的使用方法。在函数内，若是想使用函数外的全局变量，需要使用global关键字来申明该变量是引用全局变量的。
+#coding=u
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/11/27/python模块/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/11/24/mysql内联子视图查询注意点/">mysql内联子视图查询注意点</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-11-24T04:22:37.000Z" itemprop="datePublished">
+          2017-11-24
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        在进行内联子视图查询的时候，报Every derived table must have its own alias错误。
+其中查询语句是SELECT count(*) FROM ( SELECT DISTINCT library FROM mutation_information  WHERE chr=&#39;chr13&#39; AND pos=&#39;32906729&#39; AND ref=&#39;A&#39; AND 
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/11/24/mysql内联子视图查询注意点/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/11/24/hdfs为什么不支持随机写/">hdfs为什么不支持随机写</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-11-24T01:10:34.000Z" itemprop="datePublished">
+          2017-11-24
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        为什么hdfs不支持随机写
+
+随机写的话，分布式数据一致性会受到挑战。而如果一定要保证实时的数据一致性，那么性能上的牺牲就会太大了。所以说，随机写不属于HDFS的适用场景。
+绝大部分文件的修改是采用在文件尾部追加数据，而不是覆盖原有数据的方式。对文件的随机写入操作在实际中几乎不存在。一旦写完之后，对文 件的操作就只有读，而且通常是按顺序读。大量的数据符合这些特性，比如：数据分析程序扫描的超大的数据集；正在运行的应用程序生成的连续的数据流
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/11/24/hdfs为什么不支持随机写/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/11/24/数据库和数据仓库的区别联系/">数据库和数据仓库的区别联系</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-11-24T00:56:10.000Z" itemprop="datePublished">
+          2017-11-24
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        数据库：传统的关系型数据库的主要应用，主要是基本的、日常的事务处理，例如银行交易。
+数据仓库：数据仓库系统的主要应用主要是OLAP（On-Line Analytical Processing），支持复杂的分析操作，侧重决策支持，并且提供直观易懂的查询结果。
+我尝试着再补充些具体的事例来说明，这样更可以帮助大家更好理解一些。举个最常见的例子，拿电商行业来说好了。基本每家电商公司都会经历，从只需要业务数据库到要数据仓库的阶段。电商早期启动非
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/11/24/数据库和数据仓库的区别联系/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -3330,51 +3465,6 @@ ICMP报文是在IP数据报的一部分。因为IP数据报首部的检验和并
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2016/11/16/每天一个linux/">每天一个linux命令</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-11-15T16:00:26.000Z" itemprop="datePublished">
-          2016-11-16
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        这个文件是用来记录我学习linux的历程的，持续更新 0.0ing
-2016.10
-整个linux系统，都是对大小写敏感的
-GNU/Linux的文件类型（一个文件由目录项、inode和数据块组成）
-
-普通文件
-
-目录文件
-
-特殊文件/设备文件
-
-链接文件和符号连接文件
-
-
-Shell是一种具备特殊功能的程序，它是介于使用者和 UNIX/linux 操作系统之核心程序（kernel）间的一个接口。
-linux命令=内部命令(help)+外
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/11/16/每天一个linux/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
                     <h3><a href="/2016/11/16/初识网络/">初识网络</a></h3>
                     <span>
                         <span class="post-meta">
@@ -3426,11 +3516,11 @@ linux命令=内部命令(help)+外
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2016/11/15/物理层/">物理层</a></h3>
+                    <h3><a href="/2016/11/16/每天一个linux/">每天一个linux命令</a></h3>
                     <span>
                         <span class="post-meta">
-      <time datetime="2016-11-15T02:39:26.000Z" itemprop="datePublished">
-          2016-11-15
+      <time datetime="2016-11-15T16:00:26.000Z" itemprop="datePublished">
+          2016-11-16
       </time>
     
 </span>
@@ -3439,23 +3529,27 @@ linux命令=内部命令(help)+外
                 <div class="col-md-8">
                     <p>
                       
-                        物理层的任务
-物理层的主要任务
+                        这个文件是用来记录我学习linux的历程的，持续更新 0.0ing
+2016.10
+整个linux系统，都是对大小写敏感的
+GNU/Linux的文件类型（一个文件由目录项、inode和数据块组成）
 
-提供传送数据通路
-传输数据比特流
+普通文件
 
-数据链路层可以直接通过物理层提供的服务收发数据比特流（帧）。
-物理层的媒体包括架空明线、平衡电缆、光纤、无线信道等、计算机、终端等，调制解调器、各种插头、插座，LAN中的各种粗、细同轴电缆、T型接、插头，接收器，发送器，中继器等都属物理层的媒体和连接器。
+目录文件
 
-数据(data)——运送消息的实体。
-信号(signal)——数据的电气的或电磁的表现。 
-“模拟的”(anal
+特殊文件/设备文件
+
+链接文件和符号连接文件
+
+
+Shell是一种具备特殊功能的程序，它是介于使用者和 UNIX/linux 操作系统之核心程序（kernel）间的一个接口。
+linux命令=内部命令(help)+外
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2016/11/15/物理层/">Read More...</a>
+                        <a href="/2016/11/16/每天一个linux/">Read More...</a>
                     </p>
                     
                 </div>
@@ -3514,11 +3608,11 @@ tar：Tape archive 解压文
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2016/11/14/什么是网关/">什么是网关</a></h3>
+                    <h3><a href="/2016/11/15/物理层/">物理层</a></h3>
                     <span>
                         <span class="post-meta">
-      <time datetime="2016-11-14T15:08:55.000Z" itemprop="datePublished">
-          2016-11-14
+      <time datetime="2016-11-15T02:39:26.000Z" itemprop="datePublished">
+          2016-11-15
       </time>
     
 </span>
@@ -3527,13 +3621,23 @@ tar：Tape archive 解压文
                 <div class="col-md-8">
                     <p>
                       
-                        网关是一种充当转换重任的计算机系统或设备。在使用不同的通信协议、数据格式或语言,甚至体系结构完全不同的两种系统之间，网关是一个翻译器。与网桥只是简单地传达信息不同，网关对收到的信息要重新打包，以适应目的系统的需求。同时，网关也可以提供过滤和安全功能。大多数网关运行在OSI 7层协议的顶层–应用层。 
-大家都知道，从一个房间走到另一个房间，必然要经过一扇门。同样，从一个网络向另一个网络发送信息，也必须经过一道“关口”，这道关口就是网关。顾
+                        物理层的任务
+物理层的主要任务
+
+提供传送数据通路
+传输数据比特流
+
+数据链路层可以直接通过物理层提供的服务收发数据比特流（帧）。
+物理层的媒体包括架空明线、平衡电缆、光纤、无线信道等、计算机、终端等，调制解调器、各种插头、插座，LAN中的各种粗、细同轴电缆、T型接、插头，接收器，发送器，中继器等都属物理层的媒体和连接器。
+
+数据(data)——运送消息的实体。
+信号(signal)——数据的电气的或电磁的表现。 
+“模拟的”(anal
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2016/11/14/什么是网关/">Read More...</a>
+                        <a href="/2016/11/15/物理层/">Read More...</a>
                     </p>
                     
                 </div>
@@ -3573,6 +3677,37 @@ mysql.exe是mysql服务器的主应用程序。
                     
                     <p class="pull-right readMore">
                         <a href="/2016/11/14/php函数连接mysql数据库/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/11/14/什么是网关/">什么是网关</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-11-14T15:08:55.000Z" itemprop="datePublished">
+          2016-11-14
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        网关是一种充当转换重任的计算机系统或设备。在使用不同的通信协议、数据格式或语言,甚至体系结构完全不同的两种系统之间，网关是一个翻译器。与网桥只是简单地传达信息不同，网关对收到的信息要重新打包，以适应目的系统的需求。同时，网关也可以提供过滤和安全功能。大多数网关运行在OSI 7层协议的顶层–应用层。 
+大家都知道，从一个房间走到另一个房间，必然要经过一扇门。同样，从一个网络向另一个网络发送信息，也必须经过一道“关口”，这道关口就是网关。顾
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/11/14/什么是网关/">Read More...</a>
                     </p>
                     
                 </div>
