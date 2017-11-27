@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>python模块 | What I Write</title>
+  <title>python异常处理 | What I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -185,38 +185,26 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-11-27T09:27:23.000Z" itemprop="datePublished">
+      <time datetime="2017-11-27T13:05:57.000Z" itemprop="datePublished">
           2017-11-27
       </time>
     
 </span>
-                <h1>python模块</h1>
+                <h1>python异常处理</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>python的模块也是python对象，具有随机的名字属性，用以绑定或引用。</p>
-<p>模块名通常就是文件名。例如aname模块，一般会有aname.py文件。</p>
-<blockquote>
-<p>dir()函数，类似与浏览器实现的js,console.dir()方法，可以列出模块对象的所有属性及方法。</p>
-</blockquote>
-<hr>
-<p>python的全局变量与局部变量具有和php类似的使用方法。在函数内，若是想使用函数外的全局变量，需要使用global关键字来申明该变量是引用全局变量的。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"> </div><div class="line">Money = <span class="number">2000</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">AddMoney</span><span class="params">()</span>:</span></div><div class="line">   <span class="comment"># 想改正代码就取消以下注释:</span></div><div class="line">   <span class="comment"># global Money</span></div><div class="line">   Money = Money + <span class="number">1</span></div><div class="line"> </div><div class="line"><span class="keyword">print</span> Money</div><div class="line">AddMoney()</div><div class="line"><span class="keyword">print</span> Money</div></pre></td></tr></table></figure>
-<hr>
-<p>python的包，可以很好地组织模块和子包，可以写相应的py文件来管理包结构。</p>
+      		<p>python异常处理：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment">#-*- coding:utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(<span class="string">'utf8'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        print(<span class="string">'In try.'</span>)</div><div class="line">        <span class="keyword">raise</span> GeneratorExit</div><div class="line">        <span class="keyword">raise</span> FloatingPointError</div><div class="line">    <span class="keyword">except</span> GeneratorExit,argument:</div><div class="line">        <span class="keyword">print</span> <span class="string">"the argument does not contain numbers\n"</span>,argument</div><div class="line">    <span class="keyword">except</span> FloatingPointError:</div><div class="line">        print(<span class="string">'In FloatingPointError'</span>)</div><div class="line">    <span class="keyword">except</span>:</div><div class="line">        print(<span class="string">'In except'</span>)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        print(<span class="string">'In else'</span>)</div><div class="line">        <span class="keyword">return</span> <span class="string">'else'</span></div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        print(<span class="string">'In finally'</span>)</div><div class="line">        <span class="comment">#return 'finally'</span></div><div class="line"></div><div class="line">print(test1())</div></pre></td></tr></table></figure>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2017/11/27/python异常处理/" style="float: left;">
-        ← python异常处理
-    </a>
     
-    
-    <a class="pull-right" href="/2017/11/24/mysql内联子视图查询注意点/">
-        mysql内联子视图查询注意点 →
+    <a class="pull-right" href="/2017/11/27/python模块/">
+        python模块 →
     </a>
     
 </nav>
