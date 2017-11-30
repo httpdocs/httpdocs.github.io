@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Java的Comparable接口实现对象的比较 | What I Write</title>
+  <title>Java的equal，hashcode,compareTo方法理解 | What I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -185,12 +185,12 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-11-30T06:08:49.000Z" itemprop="datePublished">
+      <time datetime="2017-11-30T07:00:57.000Z" itemprop="datePublished">
           2017-11-30
       </time>
     
 </span>
-                <h1>Java的Comparable接口实现对象的比较</h1>
+                <h1>Java的equal，hashcode,compareTo方法理解</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
@@ -210,8 +210,24 @@
 <blockquote>
 <p>注意这里this.ranking-s.ranking，这个顺序与上面的i的位置是对应的。如果是s.ranking-this.ranking的话，i&gt;0那么x&lt;y了（y是待比较对象）。</p>
 </blockquote>
+<hr>
+<p>重写equal方法的时候，必须重写hashcode方法。hashCode 方法的常规协定声明相等对象必须具有相等的哈希码。如下：</p>
+<ul>
+<li>当obj1.equals(obj2)为true时，obj1.hashCode() == obj2.hashCode()必须为true </li>
+<li>当obj1.hashCode() == obj2.hashCode()为false时，obj1.equals(obj2)必须为false，</li>
+</ul>
+<p>这样如果我们对一个对象重写了euqals，意思是只要对象的成员变量值都相等那么euqals就等于true，但不重写hashcode，那么我们再new一个新的对象，当原对象equals（新对象）等于true时，两者的hashcode却是不一样的，由此将产生了理解的不一致，如在存储散列集合时（如Set类），将会存储了两个值一样的对象，导致混淆，因此，就也需要重写hashcode()</p>
+<p><strong>重写equal方法，只需要按照《Effective Java》推荐的步骤，即可。</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//判断引用指向是否相同</span></div><div class="line"><span class="keyword">if</span>(other==<span class="keyword">this</span>)&#123;<span class="keyword">return</span> <span class="keyword">true</span>;&#125;</div><div class="line"><span class="comment">//判断是否是该类型的对象</span></div><div class="line"><span class="keyword">if</span>(!(other <span class="keyword">instanceof</span> Student))&#123;<span class="keyword">return</span> <span class="keyword">false</span>;&#125;</div><div class="line"><span class="comment">//比较自定义的数据域</span></div><div class="line">Student student = (Student)other;</div><div class="line"><span class="keyword">return</span> student.name.equals(name)&amp;&amp;student.age==age;</div></pre></td></tr></table></figure>
+<p><strong>重写hashcode方法： 要保证Coder对象中所有的成员都能在hashCode中得到体现</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123; </div><div class="line">        <span class="comment">//这个数值可以自己定义</span></div><div class="line">        <span class="keyword">int</span> result = <span class="number">17</span>;  </div><div class="line">        <span class="comment">//体现一下对象的所有属性</span></div><div class="line">        result = result * <span class="number">31</span> + name.hashCode();  </div><div class="line">        result = result * <span class="number">31</span> + age;  </div><div class="line">        <span class="keyword">return</span> result;  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>hashCode()方法就是为哈希表服务的． 当我们在使用形如HashMap, HashSet这样前面以Hash开头的集合类时，hashCode()就会被隐式调用以来创建哈希映射关系</p>
+</blockquote>
+<hr>
 <pre><code>总结，自定义类要重写equals方法来进行等值比较，自定义类要重写compareTo方法来进行不同对象大小的比较，重写hashcode方法为了将数据存入HashSet/HashMap/Hashtable类时进行比较
-</code></pre>
+</code></pre><p><a href="http://blog.csdn.net/neosmith/article/details/17068365" target="_blank" rel="external">讲得比较好的博客</a></p>
+
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
