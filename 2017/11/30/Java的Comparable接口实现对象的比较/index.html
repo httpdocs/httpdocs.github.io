@@ -210,7 +210,8 @@
 <blockquote>
 <p>注意这里this.ranking-s.ranking，这个顺序与上面的i的位置是对应的。如果是s.ranking-this.ranking的话，i&gt;0那么x&lt;y了（y是待比较对象）。</p>
 </blockquote>
-
+<pre><code>总结，自定义类要重写equals方法来进行等值比较，自定义类要重写compareTo方法来进行不同对象大小的比较，重写hashcode方法为了将数据存入HashSet/HashMap/Hashtable类时进行比较
+</code></pre>
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
