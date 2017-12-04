@@ -200,8 +200,7 @@
 <p>hadoop2.x之后，由hdfs，MapReduce和Yarn三大组件构成</p>
 </blockquote>
 <hr>
-<p>###hdfs，分布式块文件系统</p>
-<p>这里先简单说一下自己对hdfs的整体理解，首先hdfs是个文件系统，然后他是分布式的，我们只需要把他理解为linux的文件系统就行了，因为真的很像，命令行操作文件等都很像。</p>
+<h3 id="hdfs，分布式块文件系统"><a href="#hdfs，分布式块文件系统" class="headerlink" title="hdfs，分布式块文件系统"></a>hdfs，分布式块文件系统</h3><p>这里先简单说一下自己对hdfs的整体理解，首先hdfs是个文件系统，然后他是分布式的，我们只需要把他理解为linux的文件系统就行了，因为真的很像，命令行操作文件等都很像。</p>
 <p><strong>hdfs特点</strong></p>
 <p>hdfs运行在廉价机器，容错率高等特点就不多了，这里需要说一下的是hdfs如何保持文件一致性，对已经写入磁盘的文件，只支持追加操作，不支持修改操作!这是hdfs比较重要的特点。</p>
 <p><strong>hdfs基本概念</strong></p>
@@ -234,8 +233,7 @@
 <p>上面提到了，它主要任务是定期合并日志至镜像，保持NameNode的元数据最新。需要注意的一点是<code>Secondary NameNode不是备份节点！</code></p>
 <pre><code>总结：启动了相应的进程有相应的服务。
 </code></pre><hr>
-<p>###mapReduce分布式并行框架</p>
-<p>简单来说，mapReduce程序其实就是运行在不同主机上的一个个进程，通过进程间通信协同完成功能罢了。</p>
+<h3 id="mapReduce分布式并行框架"><a href="#mapReduce分布式并行框架" class="headerlink" title="mapReduce分布式并行框架"></a>mapReduce分布式并行框架</h3><p>简单来说，mapReduce程序其实就是运行在不同主机上的一个个进程，通过进程间通信协同完成功能罢了。</p>
 <p>重要是hadoop2.x引入的Yarn资源管理框架的理解。</p>
 <p><strong>mapReduce认识</strong></p>
 <p><img src="http://ogov1j6dy.bkt.clouddn.com/mapreduce.png" alt=""></p>
@@ -254,8 +252,7 @@
 <p><code>MR2的执行过程</code></p>
 <p><img src="http://ogov1j6dy.bkt.clouddn.com/mrdo.png" alt=""></p>
 <p>1 用户向YARN中提交应用程序,其中包括ApplicationMaster程序、启动ApplicationMaster的命令、用户程序等。<br>2 ResourceManager为该应用程序分配第一个Container,并与对应的NodeManager通信,要求它在这个Container中启动应用程序的ApplicationMaster。<br>3 ApplicationMaster首先向ResourceManager注册,这样,用户可以直接通过ResourceManager查看应用程序的运行状态,然后,它将为各个任务申请资源,并监控它的运行状态,直到运行结束,即重复步骤4~7。<br>4 ApplicationMaster采用轮询的方式通过RPC协议向ResourceManager申请和领取资源。<br>5 一旦ApplicationMaster申请到资源后,则与对应的NodeManager通信,要求其启动任务。<br>6 NodeManager为任务设置好运行环境(包括环境变量、jar包、二进制程序等)后,将任务启动命令写到一个脚本中,并通过运行该脚本启动任务。<br>7 各个任务通过某个RPC协议向ApplicationMaster汇报自己的状态和进度,以让ApplicationMaster随时掌握各个任务的运行状态从而可以在任务失败时重新启动任务。在应用程序运行过程中,用户可随时通过RPC向ApplicationMaster查询应用程序的当前运行状态。<br>8 应用程序运行完成后,ApplicationMaster向ResourceManager注销,并关闭自己</p>
-<p>###Yarn</p>
-<p>正如上面所说，Yarn其实就可以理解为操作系统。我们只需要明确它的几个管理器提供的服务是什么即可。</p>
+<h3 id="Yarn"><a href="#Yarn" class="headerlink" title="Yarn"></a>Yarn</h3><p>正如上面所说，Yarn其实就可以理解为操作系统。我们只需要明确它的几个管理器提供的服务是什么即可。</p>
 <p>ResourceManager</p>
 <ul>
 <li>处理客户端请求</li>
