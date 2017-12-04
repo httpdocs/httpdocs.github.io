@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>数据库和数据仓库的区别联系 | What I Write</title>
+  <title>mysql的Distinct关键字遇到的问题 | What I Write</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -185,41 +185,43 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-11-24T00:56:10.000Z" itemprop="datePublished">
-          2017-11-24
+      <time datetime="2017-12-04T08:32:28.000Z" itemprop="datePublished">
+          2017-12-04
       </time>
     
 </span>
-                <h1>数据库和数据仓库的区别联系</h1>
+                <h1>mysql的Distinct关键字遇到的问题</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>数据库：传统的关系型数据库的主要应用，主要是基本的、日常的事务处理，例如银行交易。</p>
-<p>数据仓库：数据仓库系统的主要应用主要是OLAP（On-Line Analytical Processing），支持复杂的分析操作，侧重决策支持，并且提供直观易懂的查询结果。</p>
-<p>我尝试着再补充些具体的事例来说明，这样更可以帮助大家更好理解一些。举个最常见的例子，拿电商行业来说好了。基本每家电商公司都会经历，从只需要业务数据库到要数据仓库的阶段。电商早期启动非常容易，入行门槛低。找个外包团队，做了一个可以下单的网页前端 + 几台服务器 + 一个MySQL，就能开门迎客了。这好比手工作坊时期。</p>
-<p>第二阶段，流量来了，客户和订单都多起来了，普通查询已经有压力了，这个时候就需要升级架构变成多台服务器和多个业务数据库（量大+分库分表），这个阶段的业务数字和指标还可以勉强从业务数据库里查询。初步进入工业化。</p>
-<p>第三个阶段，一般需要 3-5 年左右的时间，随着业务指数级的增长，数据量的会陡增，公司角色也开始多了起来，开始有了 CEO、CMO、CIO，大家需要面临的问题越来越复杂，越来越深入。高管们关心的问题，从最初非常粗放的：“昨天的收入是多少”、“上个月的 PV、UV 是多少”，逐渐演化到非常精细化和具体的用户的集群分析，特定用户在某种使用场景中，例如“20~30岁女性用户在过去五年的第一季度化妆品类商品的购买行为与公司进行的促销活动方案之间的关系”。这类非常具体，且能够对公司决策起到关键性作用的问题，基本很难从业务数据库从调取出来。原因在于：业务数据库中的数据结构是为了完成交易而设计的，不是为了而查询和分析的便利设计的。业务数据库大多是读写优化的，即又要读（查看商品信息），也要写（产生订单，完成支付）。因此对于大量数据的读（查询指标，一般是复杂的只读类型查询）是支持不足的。</p>
-<p>而怎么解决这个问题，此时我们就需要建立一个数据仓库了，公司也算开始进入信息化阶段了。</p>
-<p>数据仓库的作用在于：数据结构为了分析和查询的便利；只读优化的数据库，即不需要它写入速度多么快，只要做大量数据的复杂查询的速度足够快就行了。</p>
-<p>那么在这里前一种业务数据库（读写都优化）的是业务性数据库，后一种是分析性数据库，即数据仓库。</p>
-<pre><code>最后总结一下：数据库 比较流行的有：MySQL, Oracle, SqlServer等数据仓库 
-比较流行的有：AWS Redshift, Greenplum, Hive等这样把数据从业务性的数据库中提取、加工、导入分析性的数据库就是传统的 ETL 工作。
-</code></pre><blockquote>
-<p>作者：陈诚<br>链接：<a href="https://www.zhihu.com/question/20623931/answer/139842331" target="_blank" rel="external">https://www.zhihu.com/question/20623931/answer/139842331</a></p>
+      		<p><strong>使用distinct</strong></p>
+<p>在使用distinct去重的时候，单列是挺好用的，但是多列的时候，就会有一点问题。</p>
+<p>首先我想要做的效果是简单的数据去重，但是想要针对一个列来去重，其他列不需要去重，一开始是这样写的:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">select distinct sample_id,id,name from mutation_information;</div></pre></td></tr></table></figure>
+<p>可以查，但是他是针对多列来去重的，意思就是说，并不只针对sample_id来去重，而是针对sample_id,id,name这三个字段来去重。这不是我想要的效果。</p>
+<hr>
+<p><strong>使用group by</strong></p>
+<p>然后在sql上解决是有办法的，就是通过group by语句来做。</p>
+<blockquote>
+<p>group by 有一个原则,就是 select 后面的所有列中,没有使用聚合函数的列,必须出现在 group by 后面。</p>
 </blockquote>
+<p>一开始是这样写的，但是会列出所有的结果，问题出在sample_id这个列。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">select * from mutation_information where sample_id in (SELECT sample_id FROM mutation_information GROUP BY sample_id);</div></pre></td></tr></table></figure>
+<p>应该这样写，id是主键。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">select * from mutation_information where id in (SELECT min(id) FROM mutation_information GROUP BY sample_id);</div></pre></td></tr></table></figure>
+<p>这样也是可以实现效果的。</p>
+<hr>
+<p><strong>在业务层代码自己处理</strong></p>
+<p>这种方法就是通过复写equal和hashCode方法来实现去重，这样也是可以实现效果的。</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2017/11/24/hdfs为什么不支持随机写/" style="float: left;">
-        ← hdfs为什么不支持随机写
-    </a>
     
-    
-    <a class="pull-right" href="/2017/11/23/python的字典数据类型/">
-        python的字典数据类型 →
+    <a class="pull-right" href="/2017/12/01/hadoop学习分享/">
+        hadoop学习分享 →
     </a>
     
 </nav>
