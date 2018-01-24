@@ -201,8 +201,11 @@
 <p>既然他们和普通select from where一样，那么为什么要使用连接运算，因为sql引擎执行连接运算时效率高。</p>
 <p><strong>sql支持的连接</strong></p>
 <p><strong>笛卡尔积</strong> FROM子句后面跟的表直接进行连接</p>
-<p><strong>内连接</strong></p>
-<p>自然连接 NATURAL JOIN（natural inner join） 根据相同属性名进行连接，舍弃一个表中的相同的属性，形成新关系。</p>
+<p><strong>内连接(分为三种)</strong></p>
+<p>1.1.等值连接：在连接条件中使用等于号(=)运算符比较被连接列的列值，其查询结果中列出被连接表中的所有列，包括其中的重复列。</p>
+<p>1.2.不等值连接：在连接条件使用除等于运算符以外的其它比较运算符比较被连接的列的列值。这些运算符包括&gt;、&gt;=、&lt;=、&lt;、!&gt;、!&lt;和&lt;&gt;。</p>
+<p>1.3.自然连接：在连接条件中使用等于(=)运算符比较被连接列的列值，但它使用选择列表指出查询结果集合中所包括的列，并删除连接表中的重复列。自然连接 NATURAL JOIN（natural inner join） 根据相同属性名进行连接，舍弃一个表中的相同的属性，形成新关系。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="number">1</span>、select * from book as a,stu as b where a.sutid = b.stuid</div><div class="line"></div><div class="line"><span class="number">2</span>、select * from book as a inner join stu as b on a.sutid = b.stuid</div><div class="line"></div><div class="line"><span class="comment">//内连接可以使用上面两种方式，其中第二种方式的inner可以省略。</span></div></pre></td></tr></table></figure>
 <p><strong>外连接</strong> </p>
 <p>左外连接 NATURAL LEFT OUTER JOIN 保留左表所有元组，连接右表<br>右外连接 NATURAL RIGHT OUTER JOIN 保留右表所有元组，连接左表<br>全外连接 NATURAL FULL OUTER JOIN 保留两个表所有元组</p>
 <pre><code>任意的连接形式可以和任意的连接条件进行组合。连接形式包括内连接，左外连接，右外连接，全外连接，连接条件包括natural，on，using。
