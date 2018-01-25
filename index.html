@@ -77,7 +77,7 @@
 				  	
 				    <li><a href="/categories/IDE/" class="animsition-link">IDE<small>(4)</small></a></li>
 				    
-				    <li><a href="/categories/git/" class="animsition-link">git<small>(2)</small></a></li>
+				    <li><a href="/categories/git/" class="animsition-link">git<small>(3)</small></a></li>
 				    
 				    <li><a href="/categories/java/" class="animsition-link">java<small>(13)</small></a></li>
 				    
@@ -98,6 +98,8 @@
 				    <li><a href="/categories/数据结构和算法/" class="animsition-link">数据结构和算法<small>(7)</small></a></li>
 				    
 				    <li><a href="/categories/框架/" class="animsition-link">框架<small>(12)</small></a></li>
+				    
+				    <li><a href="/categories/科学上网/" class="animsition-link">科学上网<small>(1)</small></a></li>
 				    
 				    <li><a href="/categories/网络/" class="animsition-link">网络<small>(6)</small></a></li>
 				    
@@ -212,6 +214,80 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/01/25/科学上网/">科学上网</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-01-25T09:15:53.000Z" itemprop="datePublished">
+          2018-01-25
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        随便记录一下搭建自己的vpn服务器的过程
+
+在搬瓦工购买国外服务器
+安装shadowsocks，并且需要python2.7环境，用到了python2.7的类库
+写配置文件
+
+{
+    "server":"65.49.204.163",
+    "local_address":"127.0.0.1",
+    "local_port":1080,
+    "port_password":{
+      "8989":"123456",
+
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/01/25/科学上网/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/01/24/git推送关联远程分支/">git推送关联远程分支</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-01-24T09:49:25.000Z" itemprop="datePublished">
+          2018-01-24
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        将当前分支与远程分支关联,关联后直接使用git push命令推送至远程
+git push --set-upstream origin darwin_admin
+
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/01/24/git推送关联远程分支/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -3800,6 +3876,47 @@ linux命令=内部命令(help)+外
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2016/11/15/物理层/">物理层</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-11-15T02:39:26.000Z" itemprop="datePublished">
+          2016-11-15
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        物理层的任务
+物理层的主要任务
+
+提供传送数据通路
+传输数据比特流
+
+数据链路层可以直接通过物理层提供的服务收发数据比特流（帧）。
+物理层的媒体包括架空明线、平衡电缆、光纤、无线信道等、计算机、终端等，调制解调器、各种插头、插座，LAN中的各种粗、细同轴电缆、T型接、插头，接收器，发送器，中继器等都属物理层的媒体和连接器。
+
+数据(data)——运送消息的实体。
+信号(signal)——数据的电气的或电磁的表现。 
+“模拟的”(anal
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/11/15/物理层/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2016/11/15/linux命令简写和全称/">linux命令简写和全称</a></h3>
                     <span>
                         <span class="post-meta">
@@ -3847,11 +3964,11 @@ tar：Tape archive 解压文
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2016/11/15/物理层/">物理层</a></h3>
+                    <h3><a href="/2016/11/14/什么是网关/">什么是网关</a></h3>
                     <span>
                         <span class="post-meta">
-      <time datetime="2016-11-15T02:39:26.000Z" itemprop="datePublished">
-          2016-11-15
+      <time datetime="2016-11-14T15:08:55.000Z" itemprop="datePublished">
+          2016-11-14
       </time>
     
 </span>
@@ -3860,23 +3977,13 @@ tar：Tape archive 解压文
                 <div class="col-md-8">
                     <p>
                       
-                        物理层的任务
-物理层的主要任务
-
-提供传送数据通路
-传输数据比特流
-
-数据链路层可以直接通过物理层提供的服务收发数据比特流（帧）。
-物理层的媒体包括架空明线、平衡电缆、光纤、无线信道等、计算机、终端等，调制解调器、各种插头、插座，LAN中的各种粗、细同轴电缆、T型接、插头，接收器，发送器，中继器等都属物理层的媒体和连接器。
-
-数据(data)——运送消息的实体。
-信号(signal)——数据的电气的或电磁的表现。 
-“模拟的”(anal
+                        网关是一种充当转换重任的计算机系统或设备。在使用不同的通信协议、数据格式或语言,甚至体系结构完全不同的两种系统之间，网关是一个翻译器。与网桥只是简单地传达信息不同，网关对收到的信息要重新打包，以适应目的系统的需求。同时，网关也可以提供过滤和安全功能。大多数网关运行在OSI 7层协议的顶层–应用层。 
+大家都知道，从一个房间走到另一个房间，必然要经过一扇门。同样，从一个网络向另一个网络发送信息，也必须经过一道“关口”，这道关口就是网关。顾
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2016/11/15/物理层/">Read More...</a>
+                        <a href="/2016/11/14/什么是网关/">Read More...</a>
                     </p>
                     
                 </div>
@@ -3916,37 +4023,6 @@ mysql.exe是mysql服务器的主应用程序。
                     
                     <p class="pull-right readMore">
                         <a href="/2016/11/14/php函数连接mysql数据库/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/11/14/什么是网关/">什么是网关</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-11-14T15:08:55.000Z" itemprop="datePublished">
-          2016-11-14
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        网关是一种充当转换重任的计算机系统或设备。在使用不同的通信协议、数据格式或语言,甚至体系结构完全不同的两种系统之间，网关是一个翻译器。与网桥只是简单地传达信息不同，网关对收到的信息要重新打包，以适应目的系统的需求。同时，网关也可以提供过滤和安全功能。大多数网关运行在OSI 7层协议的顶层–应用层。 
-大家都知道，从一个房间走到另一个房间，必然要经过一扇门。同样，从一个网络向另一个网络发送信息，也必须经过一道“关口”，这道关口就是网关。顾
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/11/14/什么是网关/">Read More...</a>
                     </p>
                     
                 </div>
