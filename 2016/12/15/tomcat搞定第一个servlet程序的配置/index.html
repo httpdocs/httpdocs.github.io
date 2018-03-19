@@ -206,7 +206,7 @@
 <p><code>web.xml配置</code></p>
 <p>下面是配置web项目的xml文件，通过这个xml你会知道tomcat的整个流程实现。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line"></div><div class="line">&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;</div><div class="line">  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">  xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee</div><div class="line">                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;</div><div class="line">  version=&quot;3.0&quot;</div><div class="line">  metadata-complete=&quot;true&quot;&gt;</div><div class="line"></div><div class="line">&lt;servlet&gt; </div><div class="line">    &lt;servlet-name&gt;the&lt;/servlet-name&gt;   //这里的the是我随便命名的，只要与&lt;servlet-mapping&gt;中的对应就行了</div><div class="line">    &lt;servlet-class&gt;web.MyFirstServlet&lt;/servlet-class&gt;   //包名+类名，因为tomcat要用到反射去实例化该对象，让它去处理请求。这也就为什么servlet会有生命周期了，因为用完就要销毁他，避免占用资源。</div><div class="line">&lt;/servlet&gt;  </div><div class="line">&lt;servlet-mapping&gt;  </div><div class="line">    &lt;servlet-name&gt;the&lt;/servlet-name&gt;  </div><div class="line">    &lt;url-pattern&gt;/hello&lt;/url-pattern&gt;  //浏览器访问该路径，就会对应到这个servlet上来处理。也是随意命名</div><div class="line">&lt;/servlet-mapping&gt;  </div><div class="line"></div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure>
-<p><img src="http://oh0ygta31.bkt.clouddn.com/servel.png" alt=""></p>
+<p><img src="https://t1.aixinxi.net/o_1c8ua8paab0lbuh1ddh1irn1if8a.png-j.jpg" alt=""></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

@@ -210,13 +210,13 @@
 </ul>
 <hr>
 <p><code>计算机的基本构成主要是分四块。</code></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/comConstruct.png" alt=""></p>
+<p><img src="https://t1.aixinxi.net/o_1c8uacigo1kho173dpk8ip1o80a.png-j.jpg" alt=""></p>
 <p>其中在每个I/O模块的控制器中都会有专门的寄存器组用来与CPU实现数据交流和被CPU控制。</p>
 <hr>
 <p><code>微处理器的发展史</code></p>
 <p>微处理器发展主要是单核到多核的转变。</p>
 <p>在一些CPU里，会有遇到双核4线程之类的，其实他不是真正的4核。只是在每个CPU内部，都会多出一个寄存器组，能够执行两个独立的线程代码流。操作系统以为有四个CPU。</p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/image201611duoxiancheng.png" alt=""></p>
+<p><img src="https://t1.aixinxi.net/o_1c8uadntd1v5370f93b7n1jtma.png-j.jpg" alt=""></p>
 <hr>
 <p><code>指令执行</code></p>
 <p>计算机内部一共有四类指令。</p>
@@ -226,7 +226,7 @@
 <li>数据运算：算术/逻辑运算</li>
 <li>控制转移：设置PC值，改变执行顺序</li>
 </ul>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/zhilingzhixing.png" alt=""></p>
+<p><img src="https://t1.aixinxi.net/o_1c8uaeqc9i8k128a11rj15fm5iaa.png-j.jpg" alt=""></p>
 <hr>
 <p><code>中断</code></p>
 <p>中断时指暂停当前程序转而执行相应事件的中断处理程序，待中断处理程序执行完再继续刚才的程序。</p>
@@ -240,10 +240,10 @@
 <p>中断的出现，提高了CPU处理的效率，比如可以让I/O设备在读的过程中去忙其他事，而不是干等。CPU在执行完每条指令后都会先去检查是否有中断请求，有就相应，没有就继续当前指令流。当然，可以设置中断位，让CPU允不允许接受中断。</p>
 <p><strong>中断的硬件实现：</strong></p>
 <p>CPU和中断控制器之间用总线上的中断请求线连接。</p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/zhongduan.png" alt=""></p>
+<p><img src="https://t1.aixinxi.net/o_1c8uahn41m622qf1v801pfs1ppca.png-j.jpg" alt=""></p>
 <p><strong>软件实现：</strong></p>
 <p>每个中断都有中断向量号，所有的中断向量都会放到一张中断向量表中。一般开机的时候，就会把中断向量表加载进内存（开头的1K左右空间）。<br>然后中断向量其实就是个地址，该地址指向了中断处理程序（其实可以理解为函数）所在地。</p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/zhongdd.png" alt=""></p>
+<p><img src="https://t1.aixinxi.net/o_1c8uaiqgn1ppqg2n1orf1sil1jc4a.png-j.jpg" alt=""></p>
 <p>处理中断的详细过程最重要就是保存现场，把当前程序的相关记录（PSW和PC）压栈，便于恢复。</p>
 <hr>
 <p><code>存储器的层次结构和高速缓存</code></p>
@@ -253,7 +253,7 @@
 <hr>
 <p><code>直接内存存取</code></p>
 <p>直接内存存取（DMA）,以前的硬盘和内存的数据传送，每次都要经过CPU，比如磁盘传数据给内存，当磁盘的缓存满了，会发出I/O中断，然后CPU去取，把数据放到内存；每次读数据，缓存会满很多次，这样每次都要CPU来转手就影响了效率。因此，DMA就是只需要CPU告诉我们的磁盘开始和结束命令，DMA控制器（优先级最高）通过抢占总线周期，来直接把硬盘数据写进内存。</p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/jfadskl.png" alt=""></p>
+<p><img src="https://t1.aixinxi.net/o_1c8uajt4c1fvo193h73k1sk71v66a.png-j.jpg" alt=""></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

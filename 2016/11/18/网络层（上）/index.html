@@ -225,14 +225,14 @@
 <li>子网的划分，改进版。</li>
 <li>构建超网，无分类的思想。</li>
 </ul>
-<p>IP地址一共分为ABCDE五类。现在就仔细说一下ABC三类ip的细节。<br><img src="http://ogov1j6dy.bkt.clouddn.com/20161118net1.png" alt=""></p>
+<p>IP地址一共分为ABCDE五类。现在就仔细说一下ABC三类ip的细节。<br><img src="https://t1.aixinxi.net/o_1c8ubs7k0lcab9214gnik04cqa.png-j.jpg" alt=""></p>
 <ul>
 <li>A类： <strong>在ip协议中规定，网络号全0的为保留地址，表示本网络的意思。而网络号全1的，如127.0.0.1，则根本不是一个网络地址，发送的任何数据报都会在本机中被解析，不会流出到别的网络。</strong></li>
 <li>B类： 因为前两位已经指派，那么网络号不可能会出现全0或者全1（C也是）。但有一个特殊的是网络地址<strong>128.0.0.0</strong>是不指派的，故最小是128.1.0.0。主机号参考A类。</li>
 <li>C类： 和B类一样，网络地址192.0.0.0也是不指派的，最小是192.0.1.0。</li>
 </ul>
 <p>ABC三类： <strong>主机号全0表示本主机所连接的网络地址，如5.6.7.8，主机所在网络为5.0.0.0,；主机号全1可以表示该网络的所有主机，这样用来广播很方便。（同样BC也是）</strong></p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/20161118net2.png" alt=""></p>
+<p><img src="https://t1.aixinxi.net/o_1c8ubtjfi1sl71vo81n4h1o431o81a.png-j.jpg" alt=""></p>
 <p><strong>IP地址与硬件地址（mac地址）</strong></p>
 <p>每一台主机都有唯一的mac地址，也有唯一的IP地址，mac地址是不变的，ip可能会因分配方式而变。mac地址和ip地址都可以唯一定位一台主机。前面提到IP协议要和另外三个协议一起工作，其中ARP协议就是把ip地址转换为mac地址的协议，这样数据才能在<strong>物理网络</strong>实现传输，只有这样才能通过IP协议实现<strong>虚拟互联网络</strong>！</p>
 <p>传输数据的时候网络层封装数据报是用IP地址，故传输的数据报也叫IP数据报，而数据链路层则是使用MAC地址，故传输的数据也叫MAC帧。</p>
@@ -245,11 +245,11 @@
 <p><code>划分子网和构建超网</code></p>
 <p><strong>划分子网</strong></p>
 <p>划分子网主要是对现有的网络自己再进行划分子网，主要思想是拿出部分主机号作为子网号。从外部网络来看，整个网络号也还只是一个网络；而从内部看，就划分出了很多个局域网。</p>
-<p>拿到一个ip地址，怎么样知道这个ip从属的网络有没有进行再划分子网呢？这个时候就要用子网掩码了。只要用子网掩码与ip地址相与，便能得到<strong>子网的网络号</strong>，然后再进行路由。<strong>子网掩码是网络的的一个重要属性，在网络中的每一台主机，不管有没有进行划分子网，都有一个子网掩码！</strong><br><img src="http://ogov1j6dy.bkt.clouddn.com/20161118net3.png" alt=""></p>
+<p>拿到一个ip地址，怎么样知道这个ip从属的网络有没有进行再划分子网呢？这个时候就要用子网掩码了。只要用子网掩码与ip地址相与，便能得到<strong>子网的网络号</strong>，然后再进行路由。<strong>子网掩码是网络的的一个重要属性，在网络中的每一台主机，不管有没有进行划分子网，都有一个子网掩码！</strong><br><img src="https://t1.aixinxi.net/o_1c8ubuoj7d8m7r81c5r1oblco0a.png-j.jpg" alt=""></p>
 <p><strong>构造超网</strong></p>
 <p><strong>CIRD无分类编址思想</strong>。书上讲得很理论，其实就是为了方便管理网络。在CIRD的编址中,IP不再是网络号+主机号了；而是<strong>网络前缀号+主机号</strong>。</p>
 <p>举个栗子：<br>中山大学买了不起B类网络，买了很多个C类IP，然后通过找规律，我们发现他们的前多少位是一模一样的@.@ 然后我们就用一模一样的那么多位，用作我们的对外网络号~然后80个C类网就只要一个网络号就可以在路由表里存放下了，路由器都笑了。</p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/20161118net4.png" alt=""></p>
+<p><img src="https://t1.aixinxi.net/o_1c8ubvll43ku1c7s1ab91jriuoea.png-j.jpg" alt=""></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
@@ -261,8 +261,8 @@
     </a>
     
     
-    <a class="pull-right" href="/2016/11/16/形式化关系查询语言/">
-        形式化关系查询语言 →
+    <a class="pull-right" href="/2016/11/16/数据链路层/">
+        数据链路层 →
     </a>
     
 </nav>

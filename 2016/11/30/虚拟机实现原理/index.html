@@ -201,7 +201,7 @@
       		<p><code>虚拟机是怎么实现的？</code></p>
 <p>假设这里的虚拟化是指在一个OS下虚拟化另外一个OS（ESX那种hypervisor直接跑在硬件上的做法，其实大同小异），另外假设这里的虚拟化是指full virtualization而不是Xen那种para-virtualization。最后假设虚拟化的是一个早期的x86机子（没有hardware supported virtualization的存在）。</p>
 <p>首先看为什么一个OS无法直接与另外的OS共存。OS作为硬件上第一层软件，认为自己拥有全部的硬件的访问和控制权，且自己是唯一的控制者。在这种情况下，如果两个OS共存，必然产生问题。</p>
-<p><img src="http://ogov1j6dy.bkt.clouddn.com/Hyperviseur.png" alt=""></p>
+<p><img src="https://t1.aixinxi.net/o_1c8uccv80nmfi7r2bgsp1cj4a.png-j.jpg" alt=""></p>
 <p>I型–裸机型，直接运行在物理设备之上，是一种基于内核的虚拟机（其中包括 Oracle 虚拟机、VMware ESX Server、Microsoft Hyper-V 和 Citrix XenServer）。这种类型的Hypervisor所扮演的角色是一种抽象概念的OS。</p>
 <p>II型–宿主机型，运行在宿主机器的操作系统上（如上图）(VMware Workstation、Microsoft Virtual PC 和 Parallels Workstation ) 创建硬件全仿真实例。Hypervisor构建出一整套虚拟硬件平台（CPU/Memory/Storage/Adapter），上面需要你再去安装新的操作系统和需要的应用软件，这样底层和上层的OS就可以完全无关化。</p>
 <hr>
